@@ -2,5 +2,3 @@
 default:
 - source: .vimrc
   target: ~/.vimrc
-- source: .vim
-  target: ~/.vim
