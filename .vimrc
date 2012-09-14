@@ -18,7 +18,7 @@ if has("gui_running")
    set lines=59
    set columns=271
    set background=light
-   set guifont=Monaco:h12
+   set guifont=Monaco:h13
 else
    set background=dark
 endif
