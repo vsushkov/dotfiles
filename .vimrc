@@ -98,10 +98,6 @@ endif
 let mapleader = ","
 let maplocalleader = "\\"
 
-" Scroll the viewport faster
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
 " Delete current buffer
 nmap <C-c> :bd<CR>
 
