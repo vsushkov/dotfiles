@@ -133,7 +133,7 @@ let g:Powerline_symbols = 'unicode'
 " NERDTree
 let g:NERDChristmasTree = 1
 let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize = 45
+let g:NERDTreeWinSize = 30
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 map <F4> :NERDTreeToggle <cr>
