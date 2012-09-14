@@ -1,10 +1,11 @@
-filetype off                    " force reloading *after* pathogen loaded
-call pathogen#infect()
 syntax on
 
 filetype plugin indent on
 
 if has("gui_running")
+    filetype off                    " force reloading *after* pathogen loaded
+    call pathogen#infect()
+
     " CtrP ignore
     let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|media$',
