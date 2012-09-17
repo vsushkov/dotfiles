@@ -6,6 +6,9 @@ if has("gui_running")
     filetype off                    " force reloading *after* pathogen loaded
     call pathogen#infect()
 
+    syntax on
+    filetype plugin indent on
+
     " CtrP ignore
     let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|media$',
@@ -46,6 +49,7 @@ if has("gui_running")
     set hlsearch        " highlight searches
     set incsearch       " do incremental searching
     set ruler           " show the cursor position all the time
+    set noerrorbells
     set visualbell t_vb=    " turn off error beep/flash
     set novisualbell    " turn off visual bell
     set nonumber        " do not show line numbers
