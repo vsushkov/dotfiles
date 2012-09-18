@@ -51,7 +51,6 @@ if has("gui_running")
     set ruler           " show the cursor position all the time
     set noerrorbells
     set visualbell t_vb=    " turn off error beep/flash
-    set novisualbell    " turn off visual bell
     set nonumber        " do not show line numbers
     set ignorecase      " ignore case when searching
     set smartindent
