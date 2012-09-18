@@ -2,3 +2,5 @@
 default:
 - source: .vimrc
   target: ~/.vimrc
+- source: .zshrc
+  target: ~/.zshrc
