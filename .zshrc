@@ -30,7 +30,7 @@ unsetopt nomatch
 plugins=(bundler git osx extract github)
 
 source $ZSH/oh-my-zsh.sh
-source /etc/profile.d/rvm.sh
+# source /etc/profile.d/rvm.sh
 
 #PATH=/Applications/xampp/xamppfiles/bin:$PATH
 #PATH=$PATH
