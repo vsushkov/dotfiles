@@ -223,15 +223,13 @@ if has("gui_running")
     vmap K <nop>
     vmap <F1> <nop>
 
-    if has("gui_running")
-        " Easy text shift
-        vnoremap ≤ <gv
-        vnoremap ≥ >gv
-        " no search highlight
-        noremap ÷ :nohl<CR>
-        " fugitive
-        noremap © :Git<Space>
-    endif
+    " Easy text shift
+    vnoremap ≤ <gv
+    vnoremap ≥ >gv
+    " no search highlight
+    noremap ÷ :nohl<CR>
+    " fugitive
+    noremap © :Git<Space>
 
     map <S-Enter> O<Esc>j
     map <CR> o<Esc>
