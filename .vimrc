@@ -1,11 +1,61 @@
-syntax on
+set nocompatible               " be iMproved
+filetype off                   " required!
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+" original repos on github
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mrtazz/molokai.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'godlygeek/tabular'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-abolish'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'tpope/vim-repeat'
+Bundle 'aaronjensen/vim-sass-status'
+Bundle 'tpope/vim-surround'
+Bundle 'mattn/zencoding-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'vsushkov/vim-phpdocumentor'
+Bundle 'tpope/vim-rails'
+" vim-scripts repos
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+syntax on
 filetype plugin indent on
 
 if has("gui_running")
-    filetype off                    " force reloading *after* pathogen loaded
-    call pathogen#infect()
-
     syntax on
     filetype plugin indent on
 
@@ -269,7 +319,6 @@ if has("gui_running")
 
     "autocmd FileType yaml,eruby,ruby setlocal shiftwidth=2 tabstop=2
     autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
-    autocmd FileType php :compiler phpmd
     autocmd FileType php set ai sw=4 sts=4 et tw=120
     autocmd FileType sh :compiler sh
     autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
