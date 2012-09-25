@@ -9,46 +9,48 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+    Bundle 'gmarik/vundle'
 
 " My Bundles here:
-" original repos on github
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mrtazz/molokai.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'godlygeek/tabular'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'tpope/vim-repeat'
-Bundle 'aaronjensen/vim-sass-status'
-Bundle 'tpope/vim-surround'
-Bundle 'mattn/zencoding-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'vsushkov/vim-phpdocumentor'
-Bundle 'tpope/vim-rails'
-Bundle 'epmatsw/ag.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'vsushkov/nerdtree-ag'
-Bundle 'SirVer/ultisnips'
-Bundle 'aalvarado/ultisnips-snippets'
-Bundle 'vsushkov/my-ultisnips-snippets'
-" vim-scripts repos
-"Bundle 'UltiSnips'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'jpo/vim-railscasts-theme'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'mrtazz/molokai.vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'vsushkov/nerdtree-ag'
+    Bundle 'bkad/CamelCaseMotion'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'mattn/gist-vim'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'godlygeek/tabular'
+    Bundle 'tomtom/tlib_vim'
+    Bundle 'tpope/vim-abolish'
+    Bundle 'MarcWeber/vim-addon-mw-utils'
+    Bundle 'tpope/vim-git'
+    Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-surround'
+    Bundle 'epmatsw/ag.vim'
+    Bundle 'mattn/zencoding-vim'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'Lokaltog/vim-easymotion'
+" Ultisnips
+    Bundle 'SirVer/ultisnips'
+    Bundle 'aalvarado/ultisnips-snippets'
+    Bundle 'vsushkov/my-ultisnips-snippets'
+" Coffescript
+    Bundle 'kchmck/vim-coffee-script'
+" Javascript
+    Bundle 'pangloss/vim-javascript'
+" Ruby / Rails
+    Bundle 'tpope/vim-endwise'
+    Bundle 'tpope/vim-rails'
+" Markups
+    Bundle 'tpope/vim-haml'
+    Bundle 'tpope/vim-markdown'
+" PHP
+    Bundle 'vsushkov/vim-phpdocumentor'
+" SASS/SCSS
+    Bundle 'aaronjensen/vim-sass-status'
 " }}}
 " Functions {{{
 " remove trailing spaces before save
