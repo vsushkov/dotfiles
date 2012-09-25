@@ -138,7 +138,7 @@ autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
-autocmd FileType ruby,markdown let b:noStripWhitespace=1
+autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
 " apply .vimrc after save
 autocmd BufWritePost .vimrc source %
 autocmd bufwritepost .vimrc call Pl#Load()
