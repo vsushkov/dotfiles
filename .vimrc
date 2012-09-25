@@ -33,14 +33,17 @@ call vundle#rc()
     Bundle 'mattn/zencoding-vim'
     Bundle 'tpope/vim-fugitive'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'vim-scripts/vimwiki'
 " Ultisnips
     Bundle 'SirVer/ultisnips'
     Bundle 'aalvarado/ultisnips-snippets'
     Bundle 'vsushkov/my-ultisnips-snippets'
-" Coffescript
-    Bundle 'kchmck/vim-coffee-script'
-" Javascript
+" Coffescript / Javascript
     Bundle 'pangloss/vim-javascript'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'itspriddle/vim-jquery'
+" JSON
+    Bundle 'leshill/vim-json'
 " Ruby / Rails
     Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-rails'
@@ -124,6 +127,7 @@ if has('persistent_undo')
     set undolevels=5000
     set undofile
 endif
+set noshowmatch
 " }}}
 " Autocommands {{{
 autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
@@ -264,6 +268,9 @@ let g:EasyMotion_leader_key = '<Leader>'
 " UltiSnips settings
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', '']
+
+" VimWiki
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
 " }}}
 " Not sorted {{{
 " Highlight VCS conflict markers
