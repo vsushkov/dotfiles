@@ -40,6 +40,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'vsushkov/nerdtree-ag'
 Bundle 'SirVer/ultisnips'
 Bundle 'aalvarado/ultisnips-snippets'
+Bundle 'vsushkov/my-ultisnips-snippets'
 " vim-scripts repos
 "Bundle 'UltiSnips'
 " non github repos
