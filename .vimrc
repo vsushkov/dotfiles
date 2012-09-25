@@ -35,9 +35,11 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'vsushkov/vim-phpdocumentor'
 Bundle 'tpope/vim-rails'
+Bundle 'epmatsw/ag.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'vsushkov/nerdtree-ag'
 " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+Bundle 'UltiSnips'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
