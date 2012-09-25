@@ -38,8 +38,10 @@ Bundle 'tpope/vim-rails'
 Bundle 'epmatsw/ag.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'vsushkov/nerdtree-ag'
+Bundle 'SirVer/ultisnips'
+Bundle 'aalvarado/ultisnips-snippets'
 " vim-scripts repos
-Bundle 'UltiSnips'
+"Bundle 'UltiSnips'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
@@ -173,7 +175,6 @@ if has("gui_running")
 
     " Coffe
     let coffee_compile_vert = 1
-    au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
     " ACK settings
     let g:ackprg="ack -i -H --nocolor --nogroup --column --all"
@@ -325,6 +326,7 @@ if has("gui_running")
     autocmd FileType sh :compiler sh
     autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
     autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
+    autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
     autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 
@@ -366,4 +368,8 @@ if has("gui_running")
     let g:Powerline_symbols = 'unicode'
 
     nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
+
+    " UltiSnips settings
+    let g:UltiSnipsUsePythonVersion = 2
+    let g:UltiSnipsSnippetDirectories = ['UltiSnips', '']
 endif
