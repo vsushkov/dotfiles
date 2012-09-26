@@ -63,6 +63,8 @@ fun! StripTrailingWhitespace()
     endif
     %s/\s\+$//e
 endfun
+" UltiSnips settings
+let g:UltiSnipsUsePythonVersion = 2
 " }}}
 " Settings {{{
 syntax on
@@ -264,10 +266,6 @@ let g:ctrlp_custom_ignore = {
 " Easymotion settings
 let g:EasyMotion_leader_key = '<Leader>'
 
-" UltiSnips settings
-let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsSnippetDirectories = ['UltiSnips', '']
-
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
 " }}}
@@ -294,8 +292,12 @@ if has("gui_running")
     set background=light
     set guifont=Monaco:h12
 
-    colorscheme solarized
-    call togglebg#map("<F12>")
+    if filereadable("Gemfile")
+        colorscheme railscasts
+    else
+        colorscheme solarized
+        call togglebg#map("<F12>")
+    endif
 
     "let g:molokai_original=1
     "colorscheme molokai
