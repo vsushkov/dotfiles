@@ -36,7 +36,6 @@ call vundle#rc()
     Bundle 'vim-scripts/vimwiki'
 " Ultisnips
     Bundle 'SirVer/ultisnips'
-    Bundle 'aalvarado/ultisnips-snippets'
     Bundle 'vsushkov/my-ultisnips-snippets'
 " Coffescript / Javascript
     Bundle 'pangloss/vim-javascript'
