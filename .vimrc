@@ -268,6 +268,11 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
+
+" UltiSnips
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsSnippetDirectories = ["bundle/ultisnips-snippets"]
+
 " }}}
 " Not sorted {{{
 " Highlight VCS conflict markers
