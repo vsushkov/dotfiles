@@ -34,6 +34,7 @@ call vundle#rc()
     Bundle 'tpope/vim-fugitive'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
+    Bundle 'jiangmiao/auto-pairs'
 " Ultisnips
     Bundle 'SirVer/ultisnips'
     Bundle 'vsushkov/ultisnips-snippets'
@@ -131,7 +132,9 @@ endif
 set noshowmatch
 
 " Use option (alt) as meta key.
-set macmeta
+if has('macmeta')
+    set macmeta
+endif
 " }}}
 " Autocommands {{{
 autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
