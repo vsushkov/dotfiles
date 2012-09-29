@@ -34,7 +34,6 @@ call vundle#rc()
     Bundle 'tpope/vim-fugitive'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
-    Bundle 'jiangmiao/auto-pairs'
 " Ultisnips
     Bundle 'SirVer/ultisnips'
     Bundle 'vsushkov/ultisnips-snippets'
