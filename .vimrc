@@ -129,6 +129,9 @@ if has('persistent_undo')
     set undofile
 endif
 set noshowmatch
+
+" Use option (alt) as meta key.
+set macmeta
 " }}}
 " Autocommands {{{
 autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
@@ -312,13 +315,10 @@ if has("gui_running")
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
 
-    " Easy text shift
-    vnoremap ≤ <gv
-    vnoremap ≥ >gv
     " no search highlight
-    noremap ÷ :nohl<CR>
+    noremap <M-/> :nohl<CR>
     " fugitive
-    noremap © :Git<Space>
+    noremap <M-g> :Git<Space>
 
     if exists('+colorcolumn')
          set colorcolumn=120
