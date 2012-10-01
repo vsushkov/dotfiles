@@ -138,10 +138,10 @@ endif
 " Autocommands {{{
 autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
 autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
-autocmd FileType sh :compiler sh
 autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
 autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.coffee set filetype=coffee
+autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
 autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
