@@ -34,9 +34,12 @@ call vundle#rc()
     Bundle 'tpope/vim-fugitive'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
-" Ultisnips
-    Bundle 'SirVer/ultisnips'
-    Bundle 'vsushkov/ultisnips-snippets'
+" Ultisnips sucks
+    "Bundle 'SirVer/ultisnips'
+    "Bundle 'vsushkov/ultisnips-snippets'
+" SnipMate
+    Bundle 'garbas/vim-snipmate'
+    Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
     Bundle 'pangloss/vim-javascript'
     Bundle 'kchmck/vim-coffee-script'
