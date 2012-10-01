@@ -39,6 +39,7 @@ call vundle#rc()
     "Bundle 'vsushkov/ultisnips-snippets'
 " SnipMate
     Bundle 'garbas/vim-snipmate'
+    Bundle 'honza/snipmate-snippets'
     Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
     Bundle 'pangloss/vim-javascript'
