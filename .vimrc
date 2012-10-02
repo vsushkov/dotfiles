@@ -278,9 +278,10 @@ let g:EasyMotion_leader_key = '<Leader>'
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
 
-" UltiSnips
-let g:UltiSnipsEditSplit = 'horizontal'
-let g:UltiSnipsSnippetDirectories = ["bundle/ultisnips-snippets"]
+" SnipMate settings
+let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/snipmate-snippets', '~/.vim/bundle/my-snipmate-snippets']
+let g:snipMate.scope_aliases['php'] = 'php'
+let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
 
 " }}}
 " Not sorted {{{
