@@ -312,7 +312,7 @@ if has("gui_running")
     set background=light
     set guifont=Monaco:h12
 
-    if filereadable("Gemfile")
+    if filereadable("Gemfile") || filereadable("Rakefile")
         colorscheme railscasts
     else
         colorscheme solarized
