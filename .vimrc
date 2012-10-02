@@ -279,7 +279,9 @@ let g:EasyMotion_leader_key = '<Leader>'
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
 
 " SnipMate settings
+let g:snipMate = {}
 let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/snipmate-snippets', '~/.vim/bundle/my-snipmate-snippets']
+let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php'
 let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
 
