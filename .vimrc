@@ -185,7 +185,7 @@ nnoremap g; g;zz
 nnoremap g, g,zz
 
 " Delete current buffer
-nmap <C-c> :bd<CR>
+nmap <D-d> :bd<CR>
 
 " Quick jumping between splits
 map <C-J> <C-W>j
