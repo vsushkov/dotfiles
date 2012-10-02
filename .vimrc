@@ -150,6 +150,8 @@ autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
 autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
+autocmd FileType ruby compiler ruby
+autocmd FileType eruby compiler eruby
 " apply .vimrc after save
 autocmd BufWritePost .vimrc source %
 autocmd bufwritepost .vimrc call Pl#Load()
