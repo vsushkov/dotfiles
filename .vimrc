@@ -135,7 +135,7 @@ endif
 set noshowmatch
 
 " Use option (alt) as meta key.
-if has('macmeta')
+if has('mac')
     set macmeta
 endif
 " }}}
