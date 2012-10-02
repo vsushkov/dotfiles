@@ -48,6 +48,7 @@ call vundle#rc()
 " JSON
     Bundle 'leshill/vim-json'
 " Ruby / Rails
+    Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-rails'
 " Markups
