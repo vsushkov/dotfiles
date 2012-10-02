@@ -48,3 +48,14 @@ alias u="t"
 alias phpunit="phpunit --colors"
 alias :e="vim"
 alias :q="exit"
+
+function rvmrcify {
+    dir=`basename $PWD`
+    ruby_version=1.9.3
+    if [ $# -ne 0 ]
+    then
+        ruby_version=$1
+    fi
+    echo "rvm use --create $ruby_version@$dir" > .rvmrc
+    source .rvmrc
+}
