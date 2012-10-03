@@ -45,6 +45,7 @@ call vundle#rc()
     Bundle 'pangloss/vim-javascript'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'itspriddle/vim-jquery'
+    Bundle 'jelera/vim-javascript-syntax'
 " JSON
     Bundle 'leshill/vim-json'
 " Ruby / Rails
