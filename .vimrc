@@ -289,6 +289,11 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php'
 let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
 
+" NERDCommenter for ruby
+let g:NERDCustomDelimiters = {
+    \ 'ruby': { 'left': '# ' }
+\ }
+
 " }}}
 " Not sorted {{{
 " Highlight VCS conflict markers
