@@ -35,6 +35,7 @@ call vundle#rc()
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
     Bundle 'vim-scripts/matchit.zip'
+    Bundle 'adinapoli/vim-markmultiple'
 " Ultisnips sucks
     "Bundle 'SirVer/ultisnips'
     "Bundle 'vsushkov/ultisnips-snippets'
