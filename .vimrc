@@ -54,6 +54,7 @@ call vundle#rc()
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-rails'
+    Bundle 'tpope/vim-bundler'
 " Markups
     Bundle 'tpope/vim-haml'
     Bundle 'tpope/vim-markdown'
@@ -270,13 +271,14 @@ map <leader>gl :Glog
 let g:pdv_cfg_php4always = 0
 nmap <Leader>d :call PhpDocSingle()<CR>
 
-" CtrP ignore
+" CtrP
 let g:ctrlp_max_files = 30000
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|media$',
   \ 'file': '\.exe$\|\.so$\|\.dll$\|.jpg$\|\.gif$\|\.png$\|\.alist$\|\.clist$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+let g:ctrlp_working_path_mode = 'rw'
 
 " Easymotion settings
 let g:EasyMotion_leader_key = '<Leader>'
