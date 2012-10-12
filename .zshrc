@@ -36,6 +36,7 @@ source $ZSH/oh-my-zsh.sh
 #PATH=$PATH
 M2_HOME=/Users/vsushkov/repos/system/apache-maven-2.2.1
 export PATH="$(brew --prefix php54)/bin:$PATH"
+PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 PATH=$M2_HOME:$HOME/bin:/usr/local/bin:/usr/local/sbin:/Users/vsushkov/lib/android-sdk-macosx/tools:$PATH
 
 #bindkey -v
