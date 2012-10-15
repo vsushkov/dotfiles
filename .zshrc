@@ -46,7 +46,6 @@ alias l="ls -1"
 alias ll="ls -lash"
 alias la="ls -a"
 alias u="t"
-alias phpunit="phpunit --colors"
 alias :e="vim"
 alias :q="exit"
 
