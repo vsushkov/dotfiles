@@ -36,6 +36,9 @@ call vundle#rc()
     Bundle 'vim-scripts/vimwiki'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'adinapoli/vim-markmultiple'
+    Bundle 'sjl/gundo.vim'
+    Bundle 'evanmiller/nginx-vim-syntax'
+    Bundle 'Townk/vim-autoclose'
 " Ultisnips sucks
     "Bundle 'SirVer/ultisnips'
     "Bundle 'vsushkov/ultisnips-snippets'
@@ -48,6 +51,7 @@ call vundle#rc()
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'itspriddle/vim-jquery'
     Bundle 'jelera/vim-javascript-syntax'
+    Bundle 'AndrewRadev/vim-eco'
 " JSON
     Bundle 'leshill/vim-json'
 " Ruby / Rails
@@ -58,6 +62,7 @@ call vundle#rc()
 " Markups
     Bundle 'tpope/vim-haml'
     Bundle 'tpope/vim-markdown'
+    Bundle 'othree/html5.vim'
 " PHP
     Bundle 'vsushkov/vim-phpdocumentor'
 " SASS/SCSS
@@ -297,6 +302,10 @@ let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
 let g:NERDCustomDelimiters = {
     \ 'ruby': { 'left': '# ' }
 \ }
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_right = 1
 
 " }}}
 " Not sorted {{{
