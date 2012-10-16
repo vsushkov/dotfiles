@@ -65,6 +65,7 @@ call vundle#rc()
     Bundle 'othree/html5.vim'
 " PHP
     Bundle 'vsushkov/vim-phpdocumentor'
+    Bundle 'vsushkov/vim-phpcs'
 " SASS/SCSS
     Bundle 'aaronjensen/vim-sass-status'
 " }}}
@@ -306,6 +307,9 @@ let g:NERDCustomDelimiters = {
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_right = 1
+
+" PHPCS
+noremap <F6> :Phpcs<CR>
 
 " }}}
 " Not sorted {{{
