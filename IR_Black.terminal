@@ -156,7 +156,7 @@
 	<key>BackgroundSettingsForInactiveWindows</key>
 	<false/>
 	<key>Bell</key>
-	<true/>
+	<false/>
 	<key>CursorBlink</key>
 	<true/>
 	<key>CursorColor</key>
@@ -184,6 +184,8 @@
 	AAAAxw==
 	</data>
 	<key>FontAntialias</key>
+	<true/>
+	<key>Linewrap</key>
 	<true/>
 	<key>ProfileCurrentVersion</key>
 	<real>2.02</real>
@@ -426,6 +428,8 @@
 	<integer>1</integer>
 	<key>type</key>
 	<string>Window Settings</string>
+	<key>useOptionAsMetaKey</key>
+	<true/>
 	<key>whiteColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
