@@ -21,6 +21,7 @@ call vundle#rc()
     Bundle 'bkad/CamelCaseMotion'
     Bundle 'kien/ctrlp.vim'
     Bundle 'mattn/gist-vim'
+    Bundle 'mattn/webapi-vim'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'godlygeek/tabular'
     Bundle 'tomtom/tlib_vim'
@@ -311,6 +312,10 @@ let g:gundo_right = 1
 
 " PHPCS
 noremap <F6> :Phpcs<CR>
+
+" Gist
+let g:gist_clip_command = 'pbcopy'
+let g:gist_open_browser_after_post = 1
 
 " }}}
 " Not sorted {{{
