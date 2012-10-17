@@ -17,7 +17,7 @@ call vundle#rc()
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'mrtazz/molokai.vim'
     Bundle 'scrooloose/nerdtree'
-    Bundle 'vsushkov/nerdtree-ag'
+    Bundle 'vsushkov/nerdtree-ack'
     Bundle 'bkad/CamelCaseMotion'
     Bundle 'kien/ctrlp.vim'
     Bundle 'mattn/gist-vim'
@@ -30,7 +30,7 @@ call vundle#rc()
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-repeat'
     Bundle 'tpope/vim-surround'
-    Bundle 'epmatsw/ag.vim'
+    Bundle 'mileszs/ack.vim'
     Bundle 'mattn/zencoding-vim'
     Bundle 'tpope/vim-fugitive'
     Bundle 'Lokaltog/vim-easymotion'
@@ -316,6 +316,9 @@ noremap <F6> :Phpcs<CR>
 " Gist
 let g:gist_clip_command = 'pbcopy'
 let g:gist_open_browser_after_post = 1
+
+" Ack / Ag
+let g:ackprg = 'ag --nogroup --column -a -S --nocolor -f'
 
 " }}}
 " Not sorted {{{
