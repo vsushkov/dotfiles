@@ -183,6 +183,7 @@ nmap <Leader>x :%s/></>\r</g<CR>gg=G
 " Copy filepath to sysbuffer
 nmap <Leader>p :let @+=expand("%")<CR>
 
+noremap <F1> :set number!<CR>
 noremap <F2> :set list!<CR>
 noremap <F3> :make<CR>
 noremap <F7> :!xmllint --noout %<CR>
@@ -224,7 +225,6 @@ vnoremap <Space> za
 
 " Switch off manual and help keys.
 map K <nop>
-map <F1> <nop>
 imap <F1> <nop>
 vmap K <nop>
 vmap <F1> <nop>
