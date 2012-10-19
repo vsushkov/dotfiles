@@ -27,7 +27,7 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler git)
+plugins=(bundler git composer)
 
 source $ZSH/oh-my-zsh.sh
 # source /etc/profile.d/rvm.sh
@@ -46,7 +46,7 @@ alias l="ls -1"
 alias ll="ls -lash"
 alias la="ls -a"
 alias u="t"
-alias phpunit="phpunit --colors"
+alias phpunit="vendor/bin/phpunit --colors"
 alias :e="vim"
 alias :q="exit"
 
