@@ -242,6 +242,9 @@ vmap aa VGo1G
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
+" EMACS-like mappings:
+imap <C-a> <C-c>A
+
 " Don't use Ex mode; use Q for formatting
 map Q gqj
 
