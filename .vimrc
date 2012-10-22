@@ -350,6 +350,7 @@ if has("gui_running")
 
     if filereadable("Gemfile") || filereadable("Rakefile")
         colorscheme railscasts
+        set number
     else
         colorscheme solarized
         call togglebg#map("<F12>")
