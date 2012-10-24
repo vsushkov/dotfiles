@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 #PATH=/Applications/xampp/xamppfiles/bin:$PATH
 #PATH=$PATH
-#export PATH="$(brew --prefix php54)/bin:$PATH"
+export PATH="$(brew --prefix php54)/bin:$PATH"
 #PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 #PATH=/usr/local/bin:/usr/local/sbin:/Users/vsushkov/lib/android-sdk-macosx/tools:$PATH
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
