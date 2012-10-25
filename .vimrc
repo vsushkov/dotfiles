@@ -49,10 +49,10 @@ call vundle#rc()
     Bundle 'honza/snipmate-snippets'
     Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
-    Bundle 'pangloss/vim-javascript'
+    "Bundle 'pangloss/vim-javascript'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'itspriddle/vim-jquery'
-    Bundle 'jelera/vim-javascript-syntax'
+    "Bundle 'jelera/vim-javascript-syntax'
     Bundle 'AndrewRadev/vim-eco'
 " JSON
     Bundle 'leshill/vim-json'
