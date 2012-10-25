@@ -28,7 +28,7 @@ unsetopt nomatch
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(bundler git composer)
-source /usr/local/etc/bash_completion.d
+bash /usr/local/etc/bash_completion.d/git-completion.bash
 
 source $ZSH/oh-my-zsh.sh
 # source /etc/profile.d/rvm.sh
