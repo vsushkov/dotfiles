@@ -160,6 +160,7 @@ autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
 autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
 autocmd BufNewFile,BufReadPost *.coffee set filetype=coffee
 autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
@@ -296,7 +297,8 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:EasyMotion_leader_key = '<Leader>'
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'ext': '.wiki'}]
+let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
 " SnipMate settings
 let g:snipMate = {}
@@ -324,6 +326,8 @@ let g:gist_open_browser_after_post = 1
 " Ack / Ag
 let g:ackprg = 'ag --nogroup --column -a -S --nocolor -f'
 
+" Powerline
+let g:Powerline_colorscheme = 'solarized256'
 " }}}
 " Not sorted {{{
 " Highlight VCS conflict markers
