@@ -80,8 +80,49 @@ fun! StripTrailingWhitespace()
     endif
     %s/\s\+$//e
 endfun
-" UltiSnips settings
-let g:UltiSnipsUsePythonVersion = 2
+
+function! SendToTerminal(args)
+    execute ":silent !run_command '" . a:args . "'"
+endfunction
+
+function! ClearTerminal()
+    call SendToTerminal("clear")
+endfunction
+
+function! RSpec()
+    call ClearTerminal()
+    if exists("s:current_test")
+        call SendToTerminal("rspec -fd " . s:current_test)
+    endif
+endfunction
+
+function! PHPUnit()
+    call ClearTerminal()
+    if exists("s:current_test")
+        call SendToTerminal("phpunit " . s:current_test)
+    endif
+endfunction
+
+function! RunCurrentTest()
+    if exists('b:isPHP')
+        " Coding is requred here
+        let s:current_test = 'UnitTests.php'
+        call PHPUnit()
+    else
+        let s:current_test = expand('%:p')
+        call RSpec()
+    endif
+endfunction
+
+function! RunCurrentLineInTest()
+    let s:current_test = expand('%:p') . ":" . line('.')
+    call RSpec()
+endfunction
+
+function! RunLastCommand()
+    call RSpec()
+endfunction
+
 " }}}
 " Settings {{{
 syntax on
@@ -155,6 +196,7 @@ endif
 " Autocommands {{{
 autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
 autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
+autocmd FileType php let b:isPHP=1
 autocmd FileType phptml setlocal ai sw=4 sts=4 et tw=0
 autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
 autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
@@ -250,6 +292,11 @@ imap <C-a> <C-c>A
 map Q gqj
 
 nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
+
+nmap <Leader>u :call RunCurrentTest()<CR>
+" nmap <Leader>l :call RunCurrentLineInTest()<CR>
+" nmap <Leader>rr :call RunLastCommand()<CR>
+
 " }}}
 " Plugins settings {{{
 " Coffe

@@ -4,3 +4,5 @@ default:
   target: ~/.vimrc
 - source: .zshrc
   target: ~/.zshrc
+- source: run_command
+  target: ~/bin/run_command
