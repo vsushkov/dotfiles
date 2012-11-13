@@ -38,7 +38,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$(brew --prefix php54)/bin:$PATH"
 #PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 #PATH=/usr/local/bin:/usr/local/sbin:/Users/vsushkov/lib/android-sdk-macosx/tools:$PATH
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH"
 
 #bindkey -v
 
