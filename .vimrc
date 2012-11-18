@@ -402,6 +402,7 @@ if has("gui_running")
     if filereadable("Gemfile") || filereadable("Rakefile")
         colorscheme railscasts
         set number
+        set guifont=Monaco:h13
     else
         colorscheme solarized
         call togglebg#map("<F12>")
