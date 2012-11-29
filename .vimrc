@@ -203,6 +203,7 @@ autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
 autocmd BufNewFile,BufReadPost *.coffee set filetype=coffee
 autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.cnf set filetype=dosini
 autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
