@@ -4,3 +4,4 @@ if !exists(':Abolish')
 endif
 
 Abolish cateogry category
+Abolish reutrn return

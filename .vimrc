@@ -378,7 +378,7 @@ let g:ackprg = 'ag --nogroup --column -a -S --nocolor -f'
 let g:Powerline_colorscheme = 'solarized256'
 
 " Abolish
-let g:abolish_save_file = $HOME + '/dotfiles/abolish.vim'
+let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
 
 " }}}
 " Not sorted {{{
