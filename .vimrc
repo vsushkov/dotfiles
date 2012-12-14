@@ -39,7 +39,7 @@ call vundle#rc()
     Bundle 'adinapoli/vim-markmultiple'
     Bundle 'sjl/gundo.vim'
     Bundle 'evanmiller/nginx-vim-syntax'
-    Bundle 'Townk/vim-autoclose'
+    "Bundle 'Townk/vim-autoclose'
     Bundle 'tpope/vim-unimpaired'
 " Ultisnips sucks
     "Bundle 'SirVer/ultisnips'
