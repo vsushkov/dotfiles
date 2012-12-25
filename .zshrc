@@ -27,7 +27,7 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler git composer brew rvm)
+plugins=(bundler git composer brew rvm capistrano)
 #bash /usr/local/etc/bash_completion.d/git-completion.bash
 
 source $ZSH/oh-my-zsh.sh
@@ -39,6 +39,10 @@ export PATH="$(brew --prefix php54)/bin:$PATH"
 #PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 #PATH=/usr/local/bin:/usr/local/sbin:/Users/vsushkov/lib/android-sdk-macosx/tools:$PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH"
+export PATH="/usr/local/share/python:$PATH"
+
+export EDITOR="vim"
+export VISUAL="vim"
 
 #bindkey -v
 

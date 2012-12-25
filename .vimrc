@@ -70,6 +70,7 @@ call vundle#rc()
     Bundle 'vsushkov/vim-phpcs'
 " SASS/SCSS
     Bundle 'aaronjensen/vim-sass-status'
+    Bundle 'cakebaker/scss-syntax.vim'
 " }}}
 " Functions {{{
 " remove trailing spaces before save
