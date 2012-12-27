@@ -7,3 +7,4 @@ Abolish cateogry category
 Abolish reutrn return
 Abolish reutrn return
 Abolish csutomer customer
+Abolish defualt default
