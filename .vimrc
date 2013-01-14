@@ -10,7 +10,8 @@ call vundle#rc()
 
 " let Vundle manage Vundle
     Bundle 'gmarik/vundle'
-
+" like nocompatiable
+    Bundle 'tpope/vim-sensible'
 " My Bundles here:
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'jpo/vim-railscasts-theme'
@@ -39,25 +40,20 @@ call vundle#rc()
     Bundle 'adinapoli/vim-markmultiple'
     Bundle 'sjl/gundo.vim'
     Bundle 'evanmiller/nginx-vim-syntax'
-    "Bundle 'Townk/vim-autoclose'
     Bundle 'tpope/vim-unimpaired'
-" Ultisnips sucks
-    "Bundle 'SirVer/ultisnips'
-    "Bundle 'vsushkov/ultisnips-snippets'
+    Bundle 'sjl/clam.vim'
 " SnipMate
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/snipmate-snippets'
     Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
-    "Bundle 'pangloss/vim-javascript'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'itspriddle/vim-jquery'
-    "Bundle 'jelera/vim-javascript-syntax'
     Bundle 'AndrewRadev/vim-eco'
 " JSON
     Bundle 'leshill/vim-json'
 " Ruby / Rails
-    Bundle 'vim-ruby/vim-ruby'
+    "Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-bundler'
@@ -126,23 +122,17 @@ endfunction
 
 " }}}
 " Settings {{{
-syntax on
-filetype plugin indent on
 set hlsearch
-set laststatus=2    " Always show the statusline
 set encoding=utf-8  " Necessary to show unicode glyphs
 set tabstop=4       " numbers of spaces of tab character
 set softtabstop=4
 set shiftwidth=4    " numbers of spaces to (auto)indent
 set scrolloff=3     " keep 3 lines when scrolling
 set hlsearch        " highlight searches
-set incsearch       " do incremental searching
-set ruler           " show the cursor position all the time
 set noerrorbells
 set visualbell t_vb=    " turn off error beep/flash
 set nonumber        " do not show line numbers
 set ignorecase      " ignore case when searching
-set smartindent
 set title           " Set the terminal title
 set nowrap
 set expandtab
@@ -163,7 +153,7 @@ set lazyredraw
 
 " Don't show the current command in the lower right corner. In OSX, if this is
 " set and lazyredraw is set then it's slow as molasses, so we unset this
-set noshowcmd
+" set noshowcmd
 
 " This is the timeout used while waiting for user input on a multi-keyed macro
 " or while just sitting and waiting for another key to be pressed measured
@@ -178,16 +168,12 @@ set timeoutlen=500
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
-" Make the command-line completion better
-set wildmenu
-
 " Use persistent undo
 if has('persistent_undo')
     set undodir=/tmp
     set undolevels=5000
     set undofile
 endif
-set noshowmatch
 
 " Use option (alt) as meta key.
 if has('mac')
@@ -230,13 +216,8 @@ nmap <Leader>x :%s/></>\r</g<CR>gg=G
 nmap <Leader>p :let @+=expand("%")<CR>
 
 noremap <F1> :set number!<CR>
-noremap <F2> :set list!<CR>
 noremap <F3> :make<CR>
 noremap <F7> :!xmllint --noout %<CR>
-
-" Made D and Y behave more logical
-nnoremap D d$
-nnoremap Y y$
 
 " Keep search matches in the middle of the window and pulse the line when moving to them.
 nnoremap n nzzzv
