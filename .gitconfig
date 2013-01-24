@@ -1,0 +1,17 @@
+[user]
+	email = me@vsushkov.com
+	name = Valentin Sushkov
+[github]
+	user = vsushkov
+[color]
+	ui = auto
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = /Users/vsushkov/.gitignore_global
+[merge]
+    tool = splice
+[mergetool "splice"]
+    cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true

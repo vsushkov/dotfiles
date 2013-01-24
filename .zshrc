@@ -40,6 +40,7 @@ export PATH="$(brew --prefix php54)/bin:$PATH"
 #PATH=/usr/local/bin:/usr/local/sbin:/Users/vsushkov/lib/android-sdk-macosx/tools:$PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/share/python:$PATH"
+export PATH="/Users/vsushkov/bin:$PATH"
 
 export EDITOR="vim"
 export VISUAL="vim"

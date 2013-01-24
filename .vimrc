@@ -14,9 +14,6 @@ call vundle#rc()
     Bundle 'tpope/vim-sensible'
 " My Bundles here:
     Bundle 'Lokaltog/vim-powerline'
-    Bundle 'jpo/vim-railscasts-theme'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'mrtazz/molokai.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'vsushkov/nerdtree-ack'
     Bundle 'bkad/CamelCaseMotion'
@@ -34,14 +31,20 @@ call vundle#rc()
     Bundle 'mileszs/ack.vim'
     Bundle 'mattn/zencoding-vim'
     Bundle 'tpope/vim-fugitive'
+    Bundle 'gregsexton/gitv'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
     Bundle 'vim-scripts/matchit.zip'
-    Bundle 'adinapoli/vim-markmultiple'
     Bundle 'sjl/gundo.vim'
     Bundle 'evanmiller/nginx-vim-syntax'
     Bundle 'tpope/vim-unimpaired'
     Bundle 'sjl/clam.vim'
+    Bundle 'tpope/vim-scriptease'
+    Bundle 'maxbrunsfeld/vim-yankstack'
+    Bundle 'tpope/vim-eunuch'
+    Bundle 'kana/vim-textobj-user'
+    Bundle 'vim-scripts/scratch.vim'
+    Bundle 'sjl/splice.vim'
 " SnipMate
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/snipmate-snippets'
@@ -67,142 +70,11 @@ call vundle#rc()
 " SASS/SCSS
     Bundle 'aaronjensen/vim-sass-status'
     Bundle 'cakebaker/scss-syntax.vim'
-" }}}
-" Functions {{{
-" remove trailing spaces before save
-fun! StripTrailingWhitespace()
-    " Only strip if the b:noStripeWhitespace variable isn't set
-    if exists('b:noStripWhitespace')
-        return
-    endif
-    %s/\s\+$//e
-endfun
-
-function! SendToTerminal(args)
-    execute ":silent !run_command '" . a:args . "'"
-endfunction
-
-function! ClearTerminal()
-    call SendToTerminal("clear")
-endfunction
-
-function! RSpec()
-    call ClearTerminal()
-    if exists("s:current_test")
-        call SendToTerminal("rspec -fd " . s:current_test)
-    endif
-endfunction
-
-function! PHPUnit()
-    call ClearTerminal()
-    if exists("s:current_test")
-        call SendToTerminal("phpunit " . s:current_test)
-    endif
-endfunction
-
-function! RunCurrentTest()
-    if exists('b:isPHP')
-        " Coding is requred here
-        let s:current_test = 'UnitTests.php'
-        call PHPUnit()
-    else
-        let s:current_test = expand('%:p')
-        call RSpec()
-    endif
-endfunction
-
-function! RunCurrentLineInTest()
-    let s:current_test = expand('%:p') . ":" . line('.')
-    call RSpec()
-endfunction
-
-function! RunLastCommand()
-    call RSpec()
-endfunction
-
-" }}}
-" Settings {{{
-set hlsearch
-set encoding=utf-8  " Necessary to show unicode glyphs
-set tabstop=4       " numbers of spaces of tab character
-set softtabstop=4
-set shiftwidth=4    " numbers of spaces to (auto)indent
-set scrolloff=3     " keep 3 lines when scrolling
-set hlsearch        " highlight searches
-set noerrorbells
-set visualbell t_vb=    " turn off error beep/flash
-set nonumber        " do not show line numbers
-set ignorecase      " ignore case when searching
-set title           " Set the terminal title
-set nowrap
-set expandtab
-set autoread        " When a file has been changed outside of Vim, automatically read it again
-set formatoptions+=t
-set notitle
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-set foldmethod=marker
-set ch=1 " Command line height
-set nobackup
-set nowritebackup
-set noswapfile
-set backupdir=~/tmp
-set shell=/usr/local/bin/zsh\ -l
-
-" Don't update the display while executing macros
-set lazyredraw
-
-" Don't show the current command in the lower right corner. In OSX, if this is
-" set and lazyredraw is set then it's slow as molasses, so we unset this
-" set noshowcmd
-
-" This is the timeout used while waiting for user input on a multi-keyed macro
-" or while just sitting and waiting for another key to be pressed measured
-" in milliseconds.
-"
-" i.e. for the ",d" command, there is a "timeoutlen" wait period between the
-"      "," key and the "d" key.  If the "d" key isn't pressed before the
-"      timeout expires, one of two things happens: The "," command is executed
-"      if there is one (which there isn't) or the command aborts.
-set timeoutlen=500
-
-" These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-
-" Use persistent undo
-if has('persistent_undo')
-    set undodir=/tmp
-    set undolevels=5000
-    set undofile
-endif
-
-" Use option (alt) as meta key.
-if has('mac')
-    set macmeta
-endif
-" }}}
-" Autocommands {{{
-autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
-autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
-autocmd FileType php let b:isPHP=1
-autocmd FileType phtml setlocal ai sw=4 sts=4 et tw=0
-autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
-autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
-autocmd BufNewFile,BufReadPost *.coffee set filetype=coffee
-autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.cnf set filetype=dosini
-autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
-autocmd BufWritePre * call StripTrailingWhitespace()
-autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
-autocmd FileType ruby compiler ruby
-autocmd FileType eruby compiler eruby
-" apply .vimrc after save
-autocmd BufWritePost .vimrc source %
-autocmd bufwritepost .vimrc call Pl#Load()
-" Save when losing focus
-autocmd FocusLost * :wa
-" Resize splits when the window is resized
-autocmd VimResized * exe "normal! \<c-w>="
+" Colorschemes
+    Bundle 'jpo/vim-railscasts-theme'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'sjl/badwolf'
+    Bundle 'tomasr/molokai'
 " }}}
 " Mappings {{{
 " Leader
@@ -281,12 +153,69 @@ nmap <Leader>u :call RunCurrentTest()<CR>
 " nmap <Leader>rr :call RunLastCommand()<CR>
 
 " }}}
+" Functions {{{
+" remove trailing spaces before save
+fun! StripTrailingWhitespace()
+    " Only strip if the b:noStripeWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
+function! SendToTerminal(args)
+    execute ":silent !run_command '" . a:args . "'"
+endfunction
+
+function! ClearTerminal()
+    call SendToTerminal("clear")
+endfunction
+
+function! RSpec()
+    call ClearTerminal()
+    if exists("s:current_test")
+        call SendToTerminal("rspec -fd " . s:current_test)
+    endif
+endfunction
+
+function! PHPUnit()
+    call ClearTerminal()
+    if exists("s:current_test")
+        call SendToTerminal("phpunit " . s:current_test)
+    endif
+endfunction
+
+function! RunCurrentTest()
+    if exists('b:isPHP')
+        " Coding is requred here
+        let s:current_test = 'UnitTests.php'
+        call PHPUnit()
+    else
+        let s:current_test = expand('%:p')
+        call RSpec()
+    endif
+endfunction
+
+function! RunCurrentLineInTest()
+    let s:current_test = expand('%:p') . ":" . line('.')
+    call RSpec()
+endfunction
+
+function! RunLastCommand()
+    call RSpec()
+endfunction
+
+" }}}
 " Plugins settings {{{
+
+call yankstack#setup()
+
 " Coffe
 let coffee_compile_vert = 1
 
 " Powerline settings
 let g:Powerline_symbols = 'unicode'
+let g:Powerline_colorscheme = 'solarized256'
 
 " Tabularize
 vmap <Leader>t :Tab /=><CR>
@@ -356,12 +285,94 @@ let g:gist_open_browser_after_post = 1
 " Ack / Ag
 let g:ackprg = 'ag --nogroup --column -a -S --nocolor -f'
 
-" Powerline
-let g:Powerline_colorscheme = 'solarized256'
-
 " Abolish
 let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
 
+" }}}
+" Settings {{{
+set hlsearch
+set encoding=utf-8  " Necessary to show unicode glyphs
+set tabstop=4       " numbers of spaces of tab character
+set softtabstop=4
+set shiftwidth=4    " numbers of spaces to (auto)indent
+set scrolloff=3     " keep 3 lines when scrolling
+set hlsearch        " highlight searches
+set noerrorbells
+set visualbell t_vb=    " turn off error beep/flash
+set nonumber        " do not show line numbers
+set ignorecase      " ignore case when searching
+set title           " Set the terminal title
+set nowrap
+set expandtab
+set autoread        " When a file has been changed outside of Vim, automatically read it again
+set formatoptions+=t
+set notitle
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set foldmethod=marker
+set ch=1 " Command line height
+set nobackup
+set nowritebackup
+set noswapfile
+set backupdir=~/tmp
+set shell=/usr/local/bin/zsh\ -l
+set list
+
+" Don't update the display while executing macros
+set lazyredraw
+
+" Don't show the current command in the lower right corner. In OSX, if this is
+" set and lazyredraw is set then it's slow as molasses, so we unset this
+" set noshowcmd
+
+" This is the timeout used while waiting for user input on a multi-keyed macro
+" or while just sitting and waiting for another key to be pressed measured
+" in milliseconds.
+"
+" i.e. for the ",d" command, there is a "timeoutlen" wait period between the
+"      "," key and the "d" key.  If the "d" key isn't pressed before the
+"      timeout expires, one of two things happens: The "," command is executed
+"      if there is one (which there isn't) or the command aborts.
+set timeoutlen=500
+set matchtime=1
+
+" These commands open folds
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+
+" Use persistent undo
+if has('persistent_undo')
+    set undodir=/tmp
+    set undolevels=5000
+    set undofile
+endif
+
+" Use option (alt) as meta key.
+if has('mac')
+    set macmeta
+endif
+" }}}
+" Autocommands {{{
+autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
+autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
+autocmd FileType php let b:isPHP=1
+autocmd FileType phtml setlocal ai sw=4 sts=4 et tw=0
+autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
+autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
+autocmd BufNewFile,BufReadPost *.coffee set filetype=coffee
+autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.cnf set filetype=dosini
+autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
+autocmd BufWritePre * call StripTrailingWhitespace()
+autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
+autocmd FileType ruby compiler ruby
+autocmd FileType eruby compiler eruby
+" apply .vimrc after save
+autocmd BufWritePost .vimrc source %
+autocmd bufwritepost .vimrc call Pl#Load()
+" Save when losing focus
+autocmd FocusLost * :wa
+" Resize splits when the window is resized
+autocmd VimResized * exe "normal! \<c-w>="
 " }}}
 " Not sorted {{{
 " Highlight VCS conflict markers
@@ -395,10 +406,6 @@ if has("gui_running")
         call togglebg#map("<F12>")
     endif
 
-    "let g:molokai_original=1
-    "colorscheme molokai
-    "colorscheme rdark
-    "colorscheme Tomorrow
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar

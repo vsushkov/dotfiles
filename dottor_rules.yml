@@ -6,3 +6,5 @@ default:
   target: ~/.zshrc
 - source: run_command
   target: ~/bin/run_command
+- source: .gitconfig
+  target: ~/.gitconfig
