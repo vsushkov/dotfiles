@@ -13,6 +13,7 @@ call vundle#rc()
 " like nocompatiable
     Bundle 'tpope/vim-sensible'
 " My Bundles here:
+    Bundle 'tpope/vim-obsession'
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'scrooloose/nerdtree'
     Bundle 'vsushkov/nerdtree-ack'
@@ -32,27 +33,25 @@ call vundle#rc()
     Bundle 'mattn/zencoding-vim'
     Bundle 'tpope/vim-fugitive'
     Bundle 'gregsexton/gitv'
+    Bundle 'kablamo/vim-git-log'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'sjl/gundo.vim'
     Bundle 'evanmiller/nginx-vim-syntax'
     Bundle 'tpope/vim-unimpaired'
-    Bundle 'sjl/clam.vim'
     Bundle 'tpope/vim-scriptease'
-    Bundle 'maxbrunsfeld/vim-yankstack'
     Bundle 'tpope/vim-eunuch'
     Bundle 'kana/vim-textobj-user'
     Bundle 'vim-scripts/scratch.vim'
-    Bundle 'sjl/splice.vim'
 " SnipMate
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/snipmate-snippets'
     Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'itspriddle/vim-jquery'
-    Bundle 'AndrewRadev/vim-eco'
+    "Bundle 'kchmck/vim-coffee-script'
+    "Bundle 'itspriddle/vim-jquery'
+    "Bundle 'AndrewRadev/vim-eco'
 " JSON
     Bundle 'leshill/vim-json'
 " Ruby / Rails
@@ -208,8 +207,6 @@ endfunction
 " }}}
 " Plugins settings {{{
 
-call yankstack#setup()
-
 " Coffe
 let coffee_compile_vert = 1
 
@@ -283,7 +280,7 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_open_browser_after_post = 1
 
 " Ack / Ag
-let g:ackprg = 'ag --nogroup --column -a -S --nocolor -f'
+let g:ackprg = 'ag --nogroup --column -a -S --nocolor --follow'
 
 " Abolish
 let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
@@ -403,6 +400,7 @@ if has("gui_running")
         set guifont=Monaco:h13
     else
         colorscheme solarized
+        "colorscheme badwolf
         call togglebg#map("<F12>")
     endif
 

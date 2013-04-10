@@ -55,6 +55,7 @@ alias u="t"
 alias phpunit="vendor/bin/phpunit --colors"
 alias :e="vim"
 alias :q="exit"
+alias vim="mvim"
 
 function rvmrcify {
     dir=`basename $PWD`
