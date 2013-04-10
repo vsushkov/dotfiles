@@ -1,4 +1,4 @@
-My name is Valentin and this is my dotfiles
+My name is Valentin and these are my dotfiles
 ===========================================
 
 Usage:
