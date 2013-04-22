@@ -46,7 +46,7 @@ call vundle#rc()
     Bundle 'vim-scripts/scratch.vim'
 " SnipMate
     Bundle 'garbas/vim-snipmate'
-    Bundle 'honza/snipmate-snippets'
+    Bundle 'honza/vim-snippets'
     Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
     "Bundle 'kchmck/vim-coffee-script'
@@ -74,6 +74,8 @@ call vundle#rc()
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'sjl/badwolf'
     Bundle 'tomasr/molokai'
+    Bundle 'Raimondi/delimitMate'
+    Bundle 'terryma/vim-multiple-cursors'
 " }}}
 " Mappings {{{
 " Leader
@@ -258,7 +260,7 @@ let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
 " SnipMate settings
 let g:snipMate = {}
-let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/snipmate-snippets', '~/.vim/bundle/my-snipmate-snippets']
+let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/vim-snippets', '~/.vim/bundle/my-snipmate-snippets']
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php'
 let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
