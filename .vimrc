@@ -14,7 +14,7 @@ call vundle#rc()
     Bundle 'tpope/vim-sensible'
 " My Bundles here:
     Bundle 'tpope/vim-obsession'
-    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'bling/vim-airline'
     Bundle 'scrooloose/nerdtree'
     Bundle 'vsushkov/nerdtree-ack'
     Bundle 'bkad/CamelCaseMotion'
@@ -22,7 +22,7 @@ call vundle#rc()
     Bundle 'mattn/gist-vim'
     Bundle 'mattn/webapi-vim'
     Bundle 'scrooloose/nerdcommenter'
-    Bundle 'godlygeek/tabular'
+    Bundle 'junegunn/vim-easy-align'
     Bundle 'tomtom/tlib_vim'
     Bundle 'tpope/vim-abolish'
     Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -36,7 +36,8 @@ call vundle#rc()
     Bundle 'kablamo/vim-git-log'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/vimwiki'
-    Bundle 'vim-scripts/matchit.zip'
+    Bundle 'tmhedberg/matchit'
+    Bundle 'gregsexton/MatchTag'
     Bundle 'sjl/gundo.vim'
     Bundle 'evanmiller/nginx-vim-syntax'
     Bundle 'tpope/vim-unimpaired'
@@ -49,7 +50,7 @@ call vundle#rc()
     Bundle 'honza/vim-snippets'
     Bundle 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
-    "Bundle 'kchmck/vim-coffee-script'
+    Bundle 'kchmck/vim-coffee-script'
     "Bundle 'itspriddle/vim-jquery'
     "Bundle 'AndrewRadev/vim-eco'
 " JSON
@@ -63,12 +64,14 @@ call vundle#rc()
     Bundle 'tpope/vim-haml'
     Bundle 'tpope/vim-markdown'
     Bundle 'othree/html5.vim'
+    Bundle 'avakhov/vim-yaml'
 " PHP
     Bundle 'vsushkov/vim-phpdocumentor'
     Bundle 'vsushkov/vim-phpcs'
-" SASS/SCSS
+" SASS/SCSS/CSS
     Bundle 'aaronjensen/vim-sass-status'
     Bundle 'cakebaker/scss-syntax.vim'
+    Bundle 'hail2u/vim-css3-syntax'
 " Colorschemes
     Bundle 'jpo/vim-railscasts-theme'
     Bundle 'altercation/vim-colors-solarized'
@@ -93,10 +96,10 @@ noremap <F3> :make<CR>
 noremap <F7> :!xmllint --noout %<CR>
 
 " Keep search matches in the middle of the window and pulse the line when moving to them.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap * *zzzv
-nnoremap # #zzzv
+nnoremap n nzzzV
+nnoremap N NzzzV
+nnoremap * *zzzV
+nnoremap # #zzzV
 nnoremap g; g;zz
 nnoremap g, g,zz
 
@@ -110,8 +113,10 @@ map <C-H> <C-W>h
 map <C-L> <C-W>l
 noremap <leader>v <C-w>v
 
+map ® 10<C-W>>
+map ¬ 10<C-W><
+
 map <S-Enter> O<Esc>j
-map <CR> o<Esc>
 
 " edit .vimrc
 nmap <silent> ;v :next $MYVIMRC<CR>
@@ -149,9 +154,9 @@ map Q gqj
 
 nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
 
-nmap <Leader>u :call RunCurrentTest()<CR>
-" nmap <Leader>l :call RunCurrentLineInTest()<CR>
-" nmap <Leader>rr :call RunLastCommand()<CR>
+map Y y$
+
+vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " }}}
 " Functions {{{
@@ -212,14 +217,9 @@ endfunction
 " Coffe
 let coffee_compile_vert = 1
 
-" Powerline settings
-let g:Powerline_symbols = 'unicode'
-let g:Powerline_colorscheme = 'solarized256'
-
-" Tabularize
-vmap <Leader>t :Tab /=><CR>
-nmap <Leader>a vib:Tab /=><CR>
-nmap <Leader>C viB:Tab /:/r0c1l0<CR>
+" Airline
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg = 'dark'
 
 " NERDTree
 let g:NERDChristmasTree = 1
@@ -260,7 +260,7 @@ let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
 " SnipMate settings
 let g:snipMate = {}
-let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/vim-snippets', '~/.vim/bundle/my-snipmate-snippets']
+let g:snipMate['snippet_dirs'] = ['/Users/vsushkov/.vim/bundle/vim-snippets', '/Users/vsushkov/.vim/bundle/my-snipmate-snippets']
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php'
 let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
@@ -315,6 +315,8 @@ set noswapfile
 set backupdir=~/tmp
 set shell=/usr/local/bin/zsh\ -l
 set list
+set ff=unix
+set synmaxcol=200
 
 " Don't update the display while executing macros
 set lazyredraw
@@ -365,9 +367,11 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
 autocmd FileType ruby compiler ruby
 autocmd FileType eruby compiler eruby
+autocmd FileType css setlocal sw=2 sts=2 ts=2 ai et
+autocmd FileType scss setlocal sw=2 sts=2 ts=2 ai et
 " apply .vimrc after save
 autocmd BufWritePost .vimrc source %
-autocmd bufwritepost .vimrc call Pl#Load()
+" autocmd bufwritepost .vimrc call Pl#Load()
 " Save when losing focus
 autocmd FocusLost * :wa
 " Resize splits when the window is resized
@@ -396,7 +400,7 @@ if has("gui_running")
     set background=light
     set guifont=Monaco:h12
 
-    if filereadable("Gemfile") || filereadable("Rakefile")
+    if (filereadable("Gemfile") || filereadable("Rakefile")) && !filereadable('index.php')
         colorscheme railscasts
         set number
         set guifont=Monaco:h13
