@@ -27,11 +27,10 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler git composer brew rvm capistrano rails3)
+plugins=(bundler git composer brew capistrano rails3)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
-# source /etc/profile.d/rvm.sh
 
 #PATH=/Applications/xampp/xamppfiles/bin:$PATH
 #PATH=$PATH
@@ -57,20 +56,12 @@ alias :e="vim"
 alias :q="exit"
 alias vim="mvim"
 
-function rvmrcify {
-    dir=`basename $PWD`
-    ruby_version=1.9.3
-    if [ $# -ne 0 ]
-    then
-        ruby_version=$1
-    fi
-    echo "rvm use --create $ruby_version@$dir" > .rvmrc
-    source .rvmrc
-}
-
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+#rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
