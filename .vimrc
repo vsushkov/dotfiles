@@ -13,12 +13,13 @@ call vundle#rc()
 " like nocompatiable
     Bundle 'tpope/vim-sensible'
 " My Bundles here:
-    Bundle 'tpope/vim-obsession'
-    Bundle 'bling/vim-airline'
+    "Bundle 'tpope/vim-obsession'
+    "Bundle 'bling/vim-airline'
     Bundle 'scrooloose/nerdtree'
     Bundle 'vsushkov/nerdtree-ack'
     Bundle 'bkad/CamelCaseMotion'
     Bundle 'kien/ctrlp.vim'
+    Bundle 'tacahiroy/ctrlp-funky'
     Bundle 'mattn/gist-vim'
     Bundle 'mattn/webapi-vim'
     Bundle 'scrooloose/nerdcommenter'
@@ -30,21 +31,23 @@ call vundle#rc()
     Bundle 'tpope/vim-repeat'
     Bundle 'tpope/vim-surround'
     Bundle 'mileszs/ack.vim'
-    Bundle 'mattn/zencoding-vim'
+    Bundle 'mattn/emmet-vim'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'gregsexton/gitv'
-    Bundle 'kablamo/vim-git-log'
+    "Bundle 'gregsexton/gitv'
+    "Bundle 'kablamo/vim-git-log'
     Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'vim-scripts/vimwiki'
-    Bundle 'tmhedberg/matchit'
+    Bundle 'vimwiki/vimwiki'
     Bundle 'gregsexton/MatchTag'
     Bundle 'sjl/gundo.vim'
-    Bundle 'evanmiller/nginx-vim-syntax'
+    "Bundle 'evanmiller/nginx-vim-syntax'
     Bundle 'tpope/vim-unimpaired'
-    Bundle 'tpope/vim-scriptease'
-    Bundle 'tpope/vim-eunuch'
+    "Bundle 'tpope/vim-scriptease'
+    "Bundle 'tpope/vim-eunuch'
     Bundle 'kana/vim-textobj-user'
     Bundle 'vim-scripts/scratch.vim'
+    Bundle 'Raimondi/delimitMate'
+    "Bundle 'terryma/vim-multiple-cursors'
+    "Bundle 'mhinz/vim-signify'
 " SnipMate
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/vim-snippets'
@@ -54,31 +57,29 @@ call vundle#rc()
     "Bundle 'itspriddle/vim-jquery'
     "Bundle 'AndrewRadev/vim-eco'
 " JSON
-    Bundle 'leshill/vim-json'
+    "Bundle 'leshill/vim-json'
 " Ruby / Rails
-    "Bundle 'vim-ruby/vim-ruby'
+    Bundle 'vim-ruby/vim-ruby'
     Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-rails'
-    Bundle 'tpope/vim-bundler'
+    "Bundle 'tpope/vim-bundler'
 " Markups
-    Bundle 'tpope/vim-haml'
+    "Bundle 'tpope/vim-haml'
     Bundle 'tpope/vim-markdown'
-    Bundle 'othree/html5.vim'
-    Bundle 'avakhov/vim-yaml'
+    "Bundle 'othree/html5.vim'
+    "Bundle 'avakhov/vim-yaml'
 " PHP
     Bundle 'vsushkov/vim-phpdocumentor'
     Bundle 'vsushkov/vim-phpcs'
 " SASS/SCSS/CSS
-    Bundle 'aaronjensen/vim-sass-status'
+    "Bundle 'aaronjensen/vim-sass-status'
     Bundle 'cakebaker/scss-syntax.vim'
     Bundle 'hail2u/vim-css3-syntax'
 " Colorschemes
     Bundle 'jpo/vim-railscasts-theme'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'sjl/badwolf'
-    Bundle 'tomasr/molokai'
-    Bundle 'Raimondi/delimitMate'
-    Bundle 'terryma/vim-multiple-cursors'
+    "Bundle 'tomasr/molokai'
 " }}}
 " Mappings {{{
 " Leader
@@ -219,7 +220,7 @@ let coffee_compile_vert = 1
 
 " Airline
 let g:airline_theme = 'solarized'
-let g:airline_solarized_bg = 'dark'
+let g:airline_solarized_bg = 'light'
 
 " NERDTree
 let g:NERDChristmasTree = 1
@@ -242,7 +243,7 @@ map <leader>gl :Glog
 let g:pdv_cfg_php4always = 0
 nmap <Leader>d :call PhpDocSingle()<CR>
 
-" CtrP
+" CtrlP
 let g:ctrlp_max_files = 30000
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|media$',
@@ -250,6 +251,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_extensions = ['funky']
 
 " Easymotion settings
 let g:EasyMotion_leader_key = '<Leader>'
@@ -286,6 +288,9 @@ let g:ackprg = 'ag --nogroup --column -a -S --nocolor --follow'
 
 " Abolish
 let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
+
+" Signify
+let g:signify_vcs_list = ['git']
 
 " }}}
 " Settings {{{
@@ -358,11 +363,11 @@ autocmd FileType php let b:isPHP=1
 autocmd FileType phtml setlocal ai sw=4 sts=4 et tw=0
 autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
 autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
-autocmd BufNewFile,BufReadPost *.coffee set filetype=coffee
-autocmd BufNewFile,BufReadPost *.phtml set filetype=phtml
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.cnf set filetype=dosini
-autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.phtml setl filetype=phtml
+autocmd BufNewFile,BufReadPost *.md setl filetype=markdown
+autocmd BufNewFile,BufReadPost *.cnf setl filetype=dosini
+" autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
 autocmd FileType ruby compiler ruby
@@ -371,7 +376,6 @@ autocmd FileType css setlocal sw=2 sts=2 ts=2 ai et
 autocmd FileType scss setlocal sw=2 sts=2 ts=2 ai et
 " apply .vimrc after save
 autocmd BufWritePost .vimrc source %
-" autocmd bufwritepost .vimrc call Pl#Load()
 " Save when losing focus
 autocmd FocusLost * :wa
 " Resize splits when the window is resized

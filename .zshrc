@@ -27,19 +27,10 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler git composer brew capistrano rails3)
+plugins=(bundler git brew capistrano rbenv gem)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
-
-#PATH=/Applications/xampp/xamppfiles/bin:$PATH
-#PATH=$PATH
-#export PATH="$(brew --prefix php54)/bin:$PATH"
-#PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
-#PATH=/usr/local/bin:/usr/local/sbin:/Users/vsushkov/lib/android-sdk-macosx/tools:$PATH
-#export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-#export PATH="/usr/local/share/npm/bin:$PATH"
-#export PATH="/Users/vsushkov/bin:$PATH"
 
 export EDITOR="vim"
 export VISUAL="vim"
@@ -55,6 +46,7 @@ alias phpunit="vendor/bin/phpunit --colors"
 alias :e="vim"
 alias :q="exit"
 alias vim="mvim"
+#alias git="hub"
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -62,6 +54,3 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-
-#rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
