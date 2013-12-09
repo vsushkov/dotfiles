@@ -64,7 +64,7 @@ call vundle#rc()
     Bundle 'tpope/vim-rails'
     "Bundle 'tpope/vim-bundler'
 " Markups
-    "Bundle 'tpope/vim-haml'
+    Bundle 'tpope/vim-haml'
     Bundle 'tpope/vim-markdown'
     "Bundle 'othree/html5.vim'
     "Bundle 'avakhov/vim-yaml'
@@ -73,7 +73,7 @@ call vundle#rc()
     Bundle 'vsushkov/vim-phpcs'
 " SASS/SCSS/CSS
     "Bundle 'aaronjensen/vim-sass-status'
-    Bundle 'cakebaker/scss-syntax.vim'
+    "Bundle 'cakebaker/scss-syntax.vim'
     Bundle 'hail2u/vim-css3-syntax'
 " Colorschemes
     Bundle 'jpo/vim-railscasts-theme'
@@ -266,6 +266,7 @@ let g:snipMate['snippet_dirs'] = ['/Users/vsushkov/.vim/bundle/vim-snippets', '/
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php'
 let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
+let g:snipMate.scope_aliases['scss'] = 'scss,css'
 
 " NERDCommenter for ruby
 let g:NERDCustomDelimiters = {
