@@ -97,7 +97,7 @@ noremap <F3> :make<CR>
 noremap <F7> :!xmllint --noout %<CR>
 
 " Keep search matches in the middle of the window and pulse the line when moving to them.
-nnoremap n nzzzV
+nnoremap n nzzzv
 nnoremap N NzzzV
 nnoremap * *zzzV
 nnoremap # #zzzV
@@ -158,6 +158,9 @@ nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
 map Y y$
 
 vnoremap <silent> <Enter> :EasyAlign<cr>
+
+autocmd BufReadPost *.css,*.scss nnoremap <buffer> <D-j> :%s/\(\w\):\(\S\)/\1: \2/g<CR>
+autocmd BufReadPost *.css,*.scss nnoremap <buffer> <D-k> :%s/\(\S\){/\1 {/g<CR>
 
 " }}}
 " Functions {{{
@@ -363,7 +366,6 @@ autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
 autocmd FileType php let b:isPHP=1
 autocmd FileType phtml setlocal ai sw=4 sts=4 et tw=0
 autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
-autocmd FileType md,markdown setlocal colorcolumn=72 tw=72
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.phtml setl filetype=phtml
 autocmd BufNewFile,BufReadPost *.md setl filetype=markdown
@@ -425,7 +427,7 @@ if has("gui_running")
     noremap <M-g> :Git<Space>
 
     if exists('+colorcolumn')
-         set colorcolumn=120
+         set colorcolumn=+1
     endif
 endif
 " }}}
