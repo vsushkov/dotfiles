@@ -27,7 +27,7 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(themes bundler git brew capistrano rbenv gem)
+plugins=(themes bundler git brew capistrano rbenv gem history-substring-search)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PATH="/usr/local/bin:$PATH"
@@ -72,9 +72,12 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+#autoload -U up-line-or-beginning-search
+#autoload -U down-line-or-beginning-search
+#zle -N up-line-or-beginning-search
+#zle -N down-line-or-beginning-search
+#bindkey "^[[A" up-line-or-beginning-search # Up
+#bindkey "^[[B" down-line-or-beginning-search # Down

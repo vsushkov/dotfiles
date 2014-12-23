@@ -9,77 +9,78 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-    Bundle 'gmarik/vundle'
+    Plugin 'gmarik/vundle'
 " like nocompatiable
-    Bundle 'tpope/vim-sensible'
+    Plugin 'tpope/vim-sensible'
 " My Bundles here:
-    "Bundle 'tpope/vim-obsession'
-    "Bundle 'bling/vim-airline'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'vsushkov/nerdtree-ack'
-    Bundle 'bkad/CamelCaseMotion'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'tacahiroy/ctrlp-funky'
-    Bundle 'mattn/gist-vim'
-    Bundle 'mattn/webapi-vim'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'junegunn/vim-easy-align'
-    Bundle 'tomtom/tlib_vim'
-    Bundle 'tpope/vim-abolish'
-    Bundle 'MarcWeber/vim-addon-mw-utils'
-    Bundle 'tpope/vim-git'
-    Bundle 'tpope/vim-repeat'
-    Bundle 'tpope/vim-surround'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'mattn/emmet-vim'
-    Bundle 'tpope/vim-fugitive'
-    "Bundle 'gregsexton/gitv'
-    "Bundle 'kablamo/vim-git-log'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'vimwiki/vimwiki'
-    Bundle 'gregsexton/MatchTag'
-    Bundle 'sjl/gundo.vim'
-    "Bundle 'evanmiller/nginx-vim-syntax'
-    Bundle 'tpope/vim-unimpaired'
-    "Bundle 'tpope/vim-scriptease'
-    "Bundle 'tpope/vim-eunuch'
-    Bundle 'kana/vim-textobj-user'
-    Bundle 'vim-scripts/scratch.vim'
-    Bundle 'Raimondi/delimitMate'
-    "Bundle 'terryma/vim-multiple-cursors'
-    "Bundle 'mhinz/vim-signify'
+    "Plugin 'tpope/vim-obsession'
+    Plugin 'bling/vim-airline'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'vsushkov/nerdtree-ack'
+    Plugin 'bkad/CamelCaseMotion'
+    Plugin 'kien/ctrlp.vim'
+    "Plugin 'tacahiroy/ctrlp-funky'
+    "Plugin 'mattn/gist-vim'
+    "Plugin 'mattn/webapi-vim'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'junegunn/vim-easy-align'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'tpope/vim-abolish'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tpope/vim-git'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-surround'
+    Plugin 'mileszs/ack.vim'
+    Plugin 'mattn/emmet-vim'
+    Plugin 'tpope/vim-fugitive'
+    "Plugin 'gregsexton/gitv'
+    "Plugin 'kablamo/vim-git-log'
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'vimwiki/vimwiki'
+    Plugin 'gregsexton/MatchTag'
+    Plugin 'sjl/gundo.vim'
+    "Plugin 'evanmiller/nginx-vim-syntax'
+    Plugin 'tpope/vim-unimpaired'
+    "Plugin 'tpope/vim-scriptease'
+    "Plugin 'tpope/vim-eunuch'
+    "Plugin 'kana/vim-textobj-user'
+    "Plugin 'vim-scripts/scratch.vim'
+    Plugin 'Raimondi/delimitMate'
+    "Plugin 'terryma/vim-multiple-cursors'
+    "Plugin 'mhinz/vim-signify'
 " SnipMate
-    Bundle 'garbas/vim-snipmate'
-    Bundle 'honza/vim-snippets'
-    Bundle 'vsushkov/my-snipmate-snippets'
+    Plugin 'garbas/vim-snipmate'
+    Plugin 'honza/vim-snippets'
+    Plugin 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
-    Bundle 'kchmck/vim-coffee-script'
-    "Bundle 'itspriddle/vim-jquery'
-    "Bundle 'AndrewRadev/vim-eco'
+    Plugin 'kchmck/vim-coffee-script'
+    "Plugin 'itspriddle/vim-jquery'
+    "Plugin 'AndrewRadev/vim-eco'
 " JSON
-    "Bundle 'leshill/vim-json'
+    "Plugin 'leshill/vim-json'
 " Ruby / Rails
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'tpope/vim-endwise'
-    Bundle 'tpope/vim-rails'
-    "Bundle 'tpope/vim-bundler'
+    Plugin 'vim-ruby/vim-ruby'
+    Plugin 'tpope/vim-endwise'
+    Plugin 'tpope/vim-rails'
+    "Plugin 'tpope/vim-bundler'
 " Markups
-    Bundle 'tpope/vim-haml'
-    Bundle 'tpope/vim-markdown'
-    "Bundle 'othree/html5.vim'
-    "Bundle 'avakhov/vim-yaml'
+    "Plugin 'tpope/vim-haml'
+    Plugin 'tpope/vim-markdown'
+    "Plugin 'othree/html5.vim'
+    "Plugin 'avakhov/vim-yaml'
 " PHP
-    Bundle 'vsushkov/vim-phpdocumentor'
-    Bundle 'vsushkov/vim-phpcs'
+    Plugin 'vsushkov/vim-phpdocumentor'
+    Plugin 'vsushkov/vim-phpcs'
 " SASS/SCSS/CSS
-    "Bundle 'aaronjensen/vim-sass-status'
-    "Bundle 'cakebaker/scss-syntax.vim'
-    Bundle 'hail2u/vim-css3-syntax'
+    "Plugin 'aaronjensen/vim-sass-status'
+    "Plugin 'cakebaker/scss-syntax.vim'
+    Plugin 'hail2u/vim-css3-syntax'
+    Bundle 'groenewege/vim-less'
 " Colorschemes
-    Bundle 'jpo/vim-railscasts-theme'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'sjl/badwolf'
-    "Bundle 'tomasr/molokai'
+    Plugin 'jpo/vim-railscasts-theme'
+    Plugin 'altercation/vim-colors-solarized'
+    "Plugin 'sjl/badwolf'
+    "Plugin 'tomasr/molokai'
 " }}}
 " Mappings {{{
 " Leader
@@ -114,8 +115,10 @@ map <C-H> <C-W>h
 map <C-L> <C-W>l
 noremap <leader>v <C-w>v
 
-map ® 10<C-W>>
-map ¬ 10<C-W><
+map ì 10<C-W>>
+map è 10<C-W><
+map ë 5<C-W>-
+map ê 5<C-W>+
 
 map <S-Enter> O<Esc>j
 
@@ -134,9 +137,6 @@ map K <nop>
 imap <F1> <nop>
 vmap K <nop>
 vmap <F1> <nop>
-
-" substitution
-nmap S :%s//g<LEFT><LEFT>
 
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vmap <BS> x
@@ -222,8 +222,25 @@ endfunction
 let coffee_compile_vert = 1
 
 " Airline
-let g:airline_theme = 'solarized'
-let g:airline_solarized_bg = 'light'
+let g:airline_theme = 'monochrome'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " NERDTree
 let g:NERDChristmasTree = 1
@@ -298,7 +315,6 @@ let g:signify_vcs_list = ['git']
 
 " }}}
 " Settings {{{
-set hlsearch
 set encoding=utf-8  " Necessary to show unicode glyphs
 set tabstop=4       " numbers of spaces of tab character
 set softtabstop=4
@@ -308,7 +324,8 @@ set hlsearch        " highlight searches
 set noerrorbells
 set visualbell t_vb=    " turn off error beep/flash
 set nonumber        " do not show line numbers
-set ignorecase      " ignore case when searching
+set ignorecase
+set smartcase       " smart case when searching
 set title           " Set the terminal title
 set nowrap
 set expandtab
@@ -326,6 +343,7 @@ set shell=/usr/local/bin/zsh\ -l
 set list
 set ff=unix
 set synmaxcol=200
+set diffopt=filler,vertical
 
 " Don't update the display while executing macros
 set lazyredraw
