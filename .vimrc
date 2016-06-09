@@ -5,20 +5,21 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
-    Plugin 'gmarik/vundle'
+    Plugin 'gmarik/Vundle.vim'
 " like nocompatiable
     Plugin 'tpope/vim-sensible'
 " My Bundles here:
     "Plugin 'tpope/vim-obsession'
-    Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vsushkov/nerdtree-ack'
-    Plugin 'bkad/CamelCaseMotion'
-    Plugin 'kien/ctrlp.vim'
+    "Plugin 'bkad/CamelCaseMotion'
+    Plugin 'ctrlpvim/ctrlp.vim'
     "Plugin 'tacahiroy/ctrlp-funky'
     "Plugin 'mattn/gist-vim'
     "Plugin 'mattn/webapi-vim'
@@ -37,15 +38,16 @@ call vundle#rc()
     "Plugin 'kablamo/vim-git-log'
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'vimwiki/vimwiki'
-    Plugin 'gregsexton/MatchTag'
-    Plugin 'sjl/gundo.vim'
+    "Plugin 'gregsexton/MatchTag'
+    "Plugin 'sjl/gundo.vim'
     "Plugin 'evanmiller/nginx-vim-syntax'
-    Plugin 'tpope/vim-unimpaired'
+    "Plugin 'tpope/vim-unimpaired'
+    Plugin 'jiangmiao/auto-pairs'
     "Plugin 'tpope/vim-scriptease'
     "Plugin 'tpope/vim-eunuch'
     "Plugin 'kana/vim-textobj-user'
     "Plugin 'vim-scripts/scratch.vim'
-    Plugin 'Raimondi/delimitMate'
+    "Plugin 'Raimondi/delimitMate'
     "Plugin 'terryma/vim-multiple-cursors'
     "Plugin 'mhinz/vim-signify'
 " SnipMate
@@ -65,22 +67,30 @@ call vundle#rc()
     "Plugin 'tpope/vim-bundler'
 " Markups
     "Plugin 'tpope/vim-haml'
-    Plugin 'tpope/vim-markdown'
+    "Plugin 'tpope/vim-markdown'
     "Plugin 'othree/html5.vim'
     "Plugin 'avakhov/vim-yaml'
 " PHP
     Plugin 'vsushkov/vim-phpdocumentor'
-    Plugin 'vsushkov/vim-phpcs'
+    "Plugin 'vsushkov/vim-phpcs'
+    "Plugin 'xsbeats/vim-blade'
+    "Plugin 'us3r64/vim-phpqa'
 " SASS/SCSS/CSS
     "Plugin 'aaronjensen/vim-sass-status'
     "Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'hail2u/vim-css3-syntax'
-    Bundle 'groenewege/vim-less'
+    "Bundle 'groenewege/vim-less'
+" Elixir
+    Plugin 'elixir-lang/vim-elixir'
+    "Plugin 'slashmili/alchemist.vim'
 " Colorschemes
     Plugin 'jpo/vim-railscasts-theme'
     Plugin 'altercation/vim-colors-solarized'
+    Plugin 'vsushkov/vim-tomorrow-theme'
     "Plugin 'sjl/badwolf'
-    "Plugin 'tomasr/molokai'
+    Plugin 'tomasr/molokai'
+call vundle#end()
+filetype plugin indent on
 " }}}
 " Mappings {{{
 " Leader
@@ -96,6 +106,9 @@ nmap <Leader>p :let @+=expand("%")<CR>
 noremap <F1> :set number!<CR>
 noremap <F3> :make<CR>
 noremap <F7> :!xmllint --noout %<CR>
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Keep search matches in the middle of the window and pulse the line when moving to them.
 nnoremap n nzzzv
@@ -104,9 +117,6 @@ nnoremap * *zzzV
 nnoremap # #zzzV
 nnoremap g; g;zz
 nnoremap g, g,zz
-
-" Delete current buffer
-nmap <D-d> :bd<CR>
 
 " Quick jumping between splits
 map <C-J> <C-W>j
@@ -119,8 +129,6 @@ map ì 10<C-W>>
 map è 10<C-W><
 map ë 5<C-W>-
 map ê 5<C-W>+
-
-map <S-Enter> O<Esc>j
 
 " edit .vimrc
 nmap <silent> ;v :next $MYVIMRC<CR>
@@ -138,14 +146,8 @@ imap <F1> <nop>
 vmap K <nop>
 vmap <F1> <nop>
 
-" Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
-vmap <BS> x
-
-" Make vaa select the entire file...
-vmap aa VGo1G
-
 " Sudo to write
-cmap w!! w !sudo tee % >/dev/null
+"cmap w!! w !sudo tee % >/dev/null
 
 " EMACS-like mappings:
 imap <C-a> <C-c>A
@@ -173,56 +175,22 @@ fun! StripTrailingWhitespace()
     %s/\s\+$//e
 endfun
 
-function! SendToTerminal(args)
-    execute ":silent !run_command '" . a:args . "'"
-endfunction
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
 
-function! ClearTerminal()
-    call SendToTerminal("clear")
-endfunction
-
-function! RSpec()
-    call ClearTerminal()
-    if exists("s:current_test")
-        call SendToTerminal("rspec -fd " . s:current_test)
-    endif
-endfunction
-
-function! PHPUnit()
-    call ClearTerminal()
-    if exists("s:current_test")
-        call SendToTerminal("phpunit " . s:current_test)
-    endif
-endfunction
-
-function! RunCurrentTest()
-    if exists('b:isPHP')
-        " Coding is requred here
-        let s:current_test = 'UnitTests.php'
-        call PHPUnit()
-    else
-        let s:current_test = expand('%:p')
-        call RSpec()
-    endif
-endfunction
-
-function! RunCurrentLineInTest()
-    let s:current_test = expand('%:p') . ":" . line('.')
-    call RSpec()
-endfunction
-
-function! RunLastCommand()
-    call RSpec()
-endfunction
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 " }}}
 " Plugins settings {{{
 
 " Coffe
 let coffee_compile_vert = 1
-
-" Airline
-let g:airline_theme = 'monochrome'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -263,6 +231,15 @@ map <leader>gl :Glog
 let g:pdv_cfg_php4always = 0
 nmap <Leader>d :call PhpDocSingle()<CR>
 
+" PHP QA
+let g:phpqa_messdetector_cmd = './vendor/bin/phpmd'
+let g:phpqa_codesniffer_cmd = './vendor/bin/phpcs'
+let g:phpqa_codesniffer_args = "--standard=Oggetto"
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codesniffer_autorun = 0
+let g:phpqa_codecoverage_autorun = 1
+let g:phpqa_codesnifferfixer_autorun = 0
+
 " CtrlP
 let g:ctrlp_max_files = 30000
 let g:ctrlp_custom_ignore = {
@@ -297,9 +274,6 @@ let g:NERDCustomDelimiters = {
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_right = 1
 
-" PHPCS
-noremap <F6> :Phpcs<CR>
-
 " Gist
 let g:gist_clip_command = 'pbcopy'
 let g:gist_open_browser_after_post = 1
@@ -329,6 +303,7 @@ set smartcase       " smart case when searching
 set title           " Set the terminal title
 set nowrap
 set expandtab
+"set noexpandtab
 set autoread        " When a file has been changed outside of Vim, automatically read it again
 set formatoptions+=t
 set notitle
@@ -429,6 +404,9 @@ if has("gui_running")
         colorscheme railscasts
         set number
         set guifont=Monaco:h13
+    elseif (filereadable('mix.exs'))
+        colorscheme Tomorrow
+        set number
     else
         colorscheme solarized
         "colorscheme badwolf

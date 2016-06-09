@@ -27,11 +27,10 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(themes bundler git brew capistrano rbenv gem history-substring-search)
+plugins=(themes bundler git brew capistrano history-substring-search mix)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,7 +47,6 @@ alias u="t"
 alias phpunit="vendor/bin/phpunit --colors"
 alias :e="vim"
 alias :q="exit"
-alias vim="mvim"
 alias gym="/Users/vsushkov/dev/bin/gym"
 #alias git="hub"
 
