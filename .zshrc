@@ -79,3 +79,5 @@ bindkey -M emacs '^N' history-substring-search-down
 #zle -N down-line-or-beginning-search
 #bindkey "^[[A" up-line-or-beginning-search # Up
 #bindkey "^[[B" down-line-or-beginning-search # Down
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
