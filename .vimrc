@@ -50,6 +50,7 @@ call vundle#begin()
     "Plugin 'Raimondi/delimitMate'
     "Plugin 'terryma/vim-multiple-cursors'
     "Plugin 'mhinz/vim-signify'
+    Plugin 'ntpeters/vim-better-whitespace'
 " SnipMate
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
@@ -157,6 +158,8 @@ map Q gqj
 
 nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
 
+nmap <Leader>t :call RunAllTests()<CR>
+
 map Y y$
 
 vnoremap <silent> <Enter> :EasyAlign<cr>
@@ -185,6 +188,38 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
+
+function! ClearTerminal()
+    call SendToTerminal("clear")
+endfunction
+
+function! SendToTerminal(args)
+    execute ":silent !run_command '" . a:args . "'"
+endfunction
+
+function! RunTest()
+    call ClearTerminal()
+    if exists("s:current_test")
+        call SendToTerminal("mix test " . s:current_test)
+    endif
+endfunction
+
+function! RunAllTests()
+    call ClearTerminal()
+    :write!
+    call SendToTerminal("mix test")
+endfunction
+
+function! RunCurrentTest()
+    let s:current_test = expand('%:p')
+    call RunTest()
+endfunction
+
+function! RunCurrentLineInTest()
+    let s:current_test = expand('%:p') . ":" . line('.')
+    call RunTest()
+endfunction
+
 
 " }}}
 " Plugins settings {{{
@@ -216,6 +251,8 @@ let g:NERDTreeWinPos = "left"
 let g:NERDTreeWinSize = 30
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 map <F4> :NERDTreeToggle <cr>
 map <Leader>r :NERDTreeFind <cr>
 
@@ -243,7 +280,7 @@ let g:phpqa_codesnifferfixer_autorun = 0
 " CtrlP
 let g:ctrlp_max_files = 30000
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|media$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|\node_modules$\|media$',
   \ 'file': '\.exe$\|\.so$\|\.dll$\|.jpg$\|\.gif$\|\.png$\|\.alist$\|\.clist$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -406,7 +443,6 @@ if has("gui_running")
         set guifont=Monaco:h13
     elseif (filereadable('mix.exs'))
         colorscheme Tomorrow
-        set number
     else
         colorscheme solarized
         "colorscheme badwolf

@@ -81,3 +81,5 @@ bindkey -M emacs '^N' history-substring-search-down
 #bindkey "^[[B" down-line-or-beginning-search # Down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH=$PATH:/Users/vsushkov/bin

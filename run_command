@@ -1,7 +1,9 @@
 #!/usr/bin/env osascript
 on run argv
-    tell application "Terminal"
-        do script argv as string in window 1
+    tell application "iTerm2"
+        tell current session of current window
+            write text argv
+        end tell
     end tell
 
     tell application "MacVim"
