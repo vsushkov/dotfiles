@@ -354,7 +354,7 @@ set backupdir=~/tmp
 set shell=/usr/local/bin/zsh\ -l
 set list
 set ff=unix
-set synmaxcol=200
+set synmaxcol=400
 set diffopt=filler,vertical
 
 " Don't update the display while executing macros
