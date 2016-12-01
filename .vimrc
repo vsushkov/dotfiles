@@ -51,6 +51,11 @@ call vundle#begin()
     "Plugin 'terryma/vim-multiple-cursors'
     "Plugin 'mhinz/vim-signify'
     Plugin 'ntpeters/vim-better-whitespace'
+    Plugin 'ludovicchabant/vim-gutentags'
+    "Plugin 'neomake/neomake'
+    Plugin 'c-brenn/phoenix.vim'
+    Plugin 'tpope/vim-projectionist'
+    Plugin 'slashmili/alchemist.vim'
 " SnipMate
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
@@ -83,12 +88,11 @@ call vundle#begin()
     "Bundle 'groenewege/vim-less'
 " Elixir
     Plugin 'elixir-lang/vim-elixir'
-    "Plugin 'slashmili/alchemist.vim'
 " Colorschemes
     Plugin 'jpo/vim-railscasts-theme'
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'vsushkov/vim-tomorrow-theme'
-    "Plugin 'sjl/badwolf'
+    Plugin 'sjl/badwolf'
     Plugin 'tomasr/molokai'
 call vundle#end()
 filetype plugin indent on
@@ -324,6 +328,59 @@ let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
 " Signify
 let g:signify_vcs_list = ['git']
 
+" Gutentags
+let g:gutentags_cache_dir = '~/.tags_cache'
+
+" Neomake
+"autocmd! BufWritePost * Neomake
+"autocmd! BufReadPost * Neomake
+
+"let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+
+"let g:neomake_elixir_mix_maker = {
+      "\ 'exe' : 'mix',
+      "\ 'args': ['compile', '--warnings-as-errors'],
+      "\ 'cwd': getcwd(),
+      "\ 'errorformat':
+        "\ '** %s %f:%l: %m,' .
+        "\ '%f:%l: warning: %m'
+      "\ }
+
+"let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
+
+"function NeomakeCredoErrorType(entry)
+    "if a:entry.type ==# 'F'      " Refactoring opportunities
+        "let type = 'W'
+    "elseif a:entry.type ==# 'D'  " Software design suggestions
+        "let type = 'I'
+    "elseif a:entry.type ==# 'W'  " Warnings
+        "let type = 'W'
+    "elseif a:entry.type ==# 'R'  " Readability suggestions
+        "let type = 'I'
+    "elseif a:entry.type ==# 'C'  " Convention violation
+        "let type = 'W'
+    "else
+        "let type = 'M'           " Everything else is a message
+    "endif
+    "let a:entry.type = type
+"endfunction
+
+"let g:neomake_elixir_mycredo_maker = {
+      "\ 'exe': 'mix',
+      "\ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+      "\ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
+      "\ 'postprocess': function('NeomakeCredoErrorType')
+      "\ }
+
+"let g:neomake_error_sign   = { 'text': '>>', 'texthl': 'NeomakeErrorSign'   }
+"let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'NeomakeWarningSign' }
+"highlight SignColumn guibg=#718c00
+
+"let g:neomake_verbose = 0
+
+" Alchemist
+let g:alchemist_tag_disable = 1
+
 " }}}
 " Settings {{{
 set encoding=utf-8  " Necessary to show unicode glyphs
@@ -396,6 +453,7 @@ autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
 autocmd FileType php let b:isPHP=1
 autocmd FileType phtml setlocal ai sw=4 sts=4 et tw=0
 autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
+autocmd FileType elixir setlocal colorcolumn=80 tw=80
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.phtml setl filetype=phtml
 autocmd BufNewFile,BufReadPost *.md setl filetype=markdown
