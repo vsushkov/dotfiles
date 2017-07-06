@@ -27,7 +27,7 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(themes bundler git brew capistrano history-substring-search mix)
+plugins=(themes bundler git capistrano history-substring-search mix vagrant)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 eval "$(rbenv init -)"
@@ -83,3 +83,6 @@ bindkey -M emacs '^N' history-substring-search-down
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH=$PATH:/Users/vsushkov/bin
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"

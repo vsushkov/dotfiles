@@ -16,6 +16,7 @@ call vundle#begin()
     "Plugin 'tpope/vim-obsession'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
+    "Plugin 'rafi/vim-tinyline'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vsushkov/nerdtree-ack'
     "Plugin 'bkad/CamelCaseMotion'
@@ -53,9 +54,10 @@ call vundle#begin()
     Plugin 'ntpeters/vim-better-whitespace'
     Plugin 'ludovicchabant/vim-gutentags'
     "Plugin 'neomake/neomake'
-    Plugin 'c-brenn/phoenix.vim'
+    "Plugin 'c-brenn/phoenix.vim'
     Plugin 'tpope/vim-projectionist'
     Plugin 'slashmili/alchemist.vim'
+    Bundle 'bogado/file-line'
 " SnipMate
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
@@ -78,6 +80,7 @@ call vundle#begin()
     "Plugin 'avakhov/vim-yaml'
 " PHP
     Plugin 'vsushkov/vim-phpdocumentor'
+    "Plugin 'StanAngeloff/php.vim'
     "Plugin 'vsushkov/vim-phpcs'
     "Plugin 'xsbeats/vim-blade'
     "Plugin 'us3r64/vim-phpqa'
@@ -295,12 +298,12 @@ let g:ctrlp_extensions = ['funky']
 let g:EasyMotion_leader_key = '<Leader>'
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'ext': '.wiki'}]
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki', 'ext': '.wiki'}]
 let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
 " SnipMate settings
 let g:snipMate = {}
-let g:snipMate['snippet_dirs'] = ['/Users/vsushkov/.vim/bundle/vim-snippets', '/Users/vsushkov/.vim/bundle/my-snipmate-snippets']
+let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/vim-snippets', '/Users/vsushkov/.vim/bundle/my-snipmate-snippets']
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php'
 let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
