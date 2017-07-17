@@ -8,8 +8,8 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
-    Plugin 'gmarik/Vundle.vim'
+" let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
 " like nocompatiable
     Plugin 'tpope/vim-sensible'
 " My Bundles here:
@@ -94,7 +94,8 @@ call vundle#begin()
 " Colorschemes
     Plugin 'jpo/vim-railscasts-theme'
     Plugin 'altercation/vim-colors-solarized'
-    Plugin 'vsushkov/vim-tomorrow-theme'
+    "Plugin 'vsushkov/vim-tomorrow-theme'
+    Plugin 'chriskempson/base16-vim'
     Plugin 'sjl/badwolf'
     Plugin 'tomasr/molokai'
 call vundle#end()
@@ -503,7 +504,7 @@ if has("gui_running")
         set number
         set guifont=Monaco:h13
     elseif (filereadable('mix.exs'))
-        colorscheme Tomorrow
+        colorscheme base16-tomorrow
     else
         colorscheme solarized
         "colorscheme badwolf
