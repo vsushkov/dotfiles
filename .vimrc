@@ -53,7 +53,6 @@ call vundle#begin()
     "Plugin 'mhinz/vim-signify'
     Plugin 'ntpeters/vim-better-whitespace'
     Plugin 'ludovicchabant/vim-gutentags'
-    "Plugin 'neomake/neomake'
     "Plugin 'c-brenn/phoenix.vim'
     Plugin 'tpope/vim-projectionist'
     Plugin 'slashmili/alchemist.vim'
@@ -214,7 +213,6 @@ endfunction
 
 function! RunAllTests()
     call ClearTerminal()
-    :write!
     call SendToTerminal("mix test")
 endfunction
 
@@ -234,24 +232,6 @@ endfunction
 
 " Coffe
 let coffee_compile_vert = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
 
 " NERDTree
 let g:NERDChristmasTree = 1
@@ -334,53 +314,6 @@ let g:signify_vcs_list = ['git']
 
 " Gutentags
 let g:gutentags_cache_dir = '~/.tags_cache'
-
-" Neomake
-"autocmd! BufWritePost * Neomake
-"autocmd! BufReadPost * Neomake
-
-"let g:neomake_elixir_enabled_makers = ['mix', 'credo']
-
-"let g:neomake_elixir_mix_maker = {
-      "\ 'exe' : 'mix',
-      "\ 'args': ['compile', '--warnings-as-errors'],
-      "\ 'cwd': getcwd(),
-      "\ 'errorformat':
-        "\ '** %s %f:%l: %m,' .
-        "\ '%f:%l: warning: %m'
-      "\ }
-
-"let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
-
-"function NeomakeCredoErrorType(entry)
-    "if a:entry.type ==# 'F'      " Refactoring opportunities
-        "let type = 'W'
-    "elseif a:entry.type ==# 'D'  " Software design suggestions
-        "let type = 'I'
-    "elseif a:entry.type ==# 'W'  " Warnings
-        "let type = 'W'
-    "elseif a:entry.type ==# 'R'  " Readability suggestions
-        "let type = 'I'
-    "elseif a:entry.type ==# 'C'  " Convention violation
-        "let type = 'W'
-    "else
-        "let type = 'M'           " Everything else is a message
-    "endif
-    "let a:entry.type = type
-"endfunction
-
-"let g:neomake_elixir_mycredo_maker = {
-      "\ 'exe': 'mix',
-      "\ 'args': ['credo', 'list', '%:p', '--format=oneline'],
-      "\ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
-      "\ 'postprocess': function('NeomakeCredoErrorType')
-      "\ }
-
-"let g:neomake_error_sign   = { 'text': '>>', 'texthl': 'NeomakeErrorSign'   }
-"let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'NeomakeWarningSign' }
-"highlight SignColumn guibg=#718c00
-
-"let g:neomake_verbose = 0
 
 " Alchemist
 let g:alchemist_tag_disable = 1
@@ -505,6 +438,7 @@ if has("gui_running")
         set guifont=Monaco:h13
     elseif (filereadable('mix.exs'))
         colorscheme base16-tomorrow
+        let g:airline_theme='tomorrow'
     else
         colorscheme solarized
         "colorscheme badwolf
