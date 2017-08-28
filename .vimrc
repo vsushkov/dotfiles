@@ -52,10 +52,10 @@ call vundle#begin()
     "Plugin 'terryma/vim-multiple-cursors'
     "Plugin 'mhinz/vim-signify'
     Plugin 'ntpeters/vim-better-whitespace'
-    Plugin 'ludovicchabant/vim-gutentags'
+    "Plugin 'ludovicchabant/vim-gutentags'
     "Plugin 'c-brenn/phoenix.vim'
     Plugin 'tpope/vim-projectionist'
-    Plugin 'slashmili/alchemist.vim'
+    "Plugin 'slashmili/alchemist.vim'
     Bundle 'bogado/file-line'
 " SnipMate
     Plugin 'garbas/vim-snipmate'
@@ -311,12 +311,6 @@ let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
 
 " Signify
 let g:signify_vcs_list = ['git']
-
-" Gutentags
-let g:gutentags_cache_dir = '~/.tags_cache'
-
-" Alchemist
-let g:alchemist_tag_disable = 1
 
 " }}}
 " Settings {{{
