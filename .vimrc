@@ -430,8 +430,10 @@ endif
 " Customize Theme {{{
 
 function! s:base16_customize() abort
+  call Base16hi("Normal",        g:base16_gui05, "f7f9fc", g:base16_cterm05, g:base16_cterm00, "", "")
   call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
   call Base16hi("elixirAlias", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+  call Base16hi("elixirInclude", g:base16_gui0E, "", g:base16_cterm0E, "", "", "")
 endfunction
 
 augroup on_change_colorschema
