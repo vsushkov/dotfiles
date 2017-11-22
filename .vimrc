@@ -427,3 +427,17 @@ if has("gui_running")
     endif
 endif
 " }}}
+" Customize Theme {{{
+
+function! s:base16_customize() abort
+  call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+endfunction
+
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup END
+
+"}}}
+
+
