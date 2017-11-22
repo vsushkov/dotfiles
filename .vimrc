@@ -431,6 +431,7 @@ endif
 
 function! s:base16_customize() abort
   call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+  call Base16hi("elixirAlias", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 endfunction
 
 augroup on_change_colorschema
