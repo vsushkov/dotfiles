@@ -27,7 +27,7 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(themes bundler git capistrano history-substring-search mix vagrant)
+plugins=(themes bundler git capistrano history-substring-search mix)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 eval "$(rbenv init -)"
@@ -48,6 +48,7 @@ alias phpunit="vendor/bin/phpunit --colors"
 alias :e="vim"
 alias :q="exit"
 alias gym="/Users/vsushkov/dev/bin/gym"
+alias iex="iex --erl \"-kernel shell_history enabled\""
 #alias git="hub"
 
 # IP addresses tricks
@@ -86,3 +87,5 @@ export PATH=$PATH:/Users/vsushkov/bin
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
+
+export PATH="$HOME/.yarn/bin:$PATH"

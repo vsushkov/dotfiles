@@ -16,14 +16,11 @@ call vundle#begin()
     "Plugin 'tpope/vim-obsession'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-    "Plugin 'rafi/vim-tinyline'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vsushkov/nerdtree-ack'
     "Plugin 'bkad/CamelCaseMotion'
     Plugin 'ctrlpvim/ctrlp.vim'
     "Plugin 'tacahiroy/ctrlp-funky'
-    "Plugin 'mattn/gist-vim'
-    "Plugin 'mattn/webapi-vim'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'junegunn/vim-easy-align'
     Plugin 'tomtom/tlib_vim'
@@ -35,24 +32,13 @@ call vundle#begin()
     Plugin 'mileszs/ack.vim'
     Plugin 'mattn/emmet-vim'
     Plugin 'tpope/vim-fugitive'
-    "Plugin 'gregsexton/gitv'
-    "Plugin 'kablamo/vim-git-log'
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'vimwiki/vimwiki'
     "Plugin 'gregsexton/MatchTag'
     "Plugin 'sjl/gundo.vim'
     "Plugin 'evanmiller/nginx-vim-syntax'
-    "Plugin 'tpope/vim-unimpaired'
     Plugin 'jiangmiao/auto-pairs'
-    "Plugin 'tpope/vim-scriptease'
-    "Plugin 'tpope/vim-eunuch'
-    "Plugin 'kana/vim-textobj-user'
-    "Plugin 'vim-scripts/scratch.vim'
-    "Plugin 'Raimondi/delimitMate'
-    "Plugin 'terryma/vim-multiple-cursors'
-    "Plugin 'mhinz/vim-signify'
     Plugin 'ntpeters/vim-better-whitespace'
-    "Plugin 'ludovicchabant/vim-gutentags'
     "Plugin 'c-brenn/phoenix.vim'
     Plugin 'tpope/vim-projectionist'
     "Plugin 'slashmili/alchemist.vim'
@@ -63,20 +49,10 @@ call vundle#begin()
     Plugin 'vsushkov/my-snipmate-snippets'
 " Coffescript / Javascript
     Plugin 'kchmck/vim-coffee-script'
-    "Plugin 'itspriddle/vim-jquery'
-    "Plugin 'AndrewRadev/vim-eco'
-" JSON
-    "Plugin 'leshill/vim-json'
 " Ruby / Rails
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-endwise'
     Plugin 'tpope/vim-rails'
-    "Plugin 'tpope/vim-bundler'
-" Markups
-    "Plugin 'tpope/vim-haml'
-    "Plugin 'tpope/vim-markdown'
-    "Plugin 'othree/html5.vim'
-    "Plugin 'avakhov/vim-yaml'
 " PHP
     Plugin 'vsushkov/vim-phpdocumentor'
     "Plugin 'StanAngeloff/php.vim'
@@ -84,12 +60,11 @@ call vundle#begin()
     "Plugin 'xsbeats/vim-blade'
     "Plugin 'us3r64/vim-phpqa'
 " SASS/SCSS/CSS
-    "Plugin 'aaronjensen/vim-sass-status'
-    "Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'hail2u/vim-css3-syntax'
-    "Bundle 'groenewege/vim-less'
 " Elixir
-    Plugin 'elixir-lang/vim-elixir'
+    Plugin 'elixir-editors/vim-elixir'
+    Plugin 'slim-template/vim-slim'
+    Plugin 'slashmili/alchemist.vim'
 " Colorschemes
     Plugin 'jpo/vim-railscasts-theme'
     Plugin 'altercation/vim-colors-solarized'
@@ -149,19 +124,11 @@ nnoremap <Space> za
 vnoremap <Space> za
 
 " Switch off manual and help keys.
-map K <nop>
 imap <F1> <nop>
-vmap K <nop>
 vmap <F1> <nop>
-
-" Sudo to write
-"cmap w!! w !sudo tee % >/dev/null
 
 " EMACS-like mappings:
 imap <C-a> <C-c>A
-
-" Don't use Ex mode; use Q for formatting
-map Q gqj
 
 nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
 
@@ -282,13 +249,20 @@ let g:EasyMotion_leader_key = '<Leader>'
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki', 'ext': '.wiki'}]
 let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
-" SnipMate settings
-let g:snipMate = {}
-let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/vim-snippets', '/Users/vsushkov/.vim/bundle/my-snipmate-snippets']
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['php'] = 'php'
-let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
-let g:snipMate.scope_aliases['scss'] = 'scss,css'
+" ultisnips settings
+"let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/vim-snippets', '/Users/vsushkov/.vim/bundle/my-snipmate-snippets']
+"let g:snipMate.scope_aliases = {}
+"let g:snipMate.scope_aliases['php'] = 'php'
+"let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
+"let g:snipMate.scope_aliases['scss'] = 'scss,css'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " NERDCommenter for ruby
 let g:NERDCustomDelimiters = {
