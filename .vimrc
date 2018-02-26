@@ -50,9 +50,9 @@ call vundle#begin()
 " Coffescript / Javascript
     Plugin 'kchmck/vim-coffee-script'
 " Ruby / Rails
-    Plugin 'vim-ruby/vim-ruby'
+    "Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-rails'
+    "Plugin 'tpope/vim-rails'
 " PHP
     Plugin 'vsushkov/vim-phpdocumentor'
     "Plugin 'StanAngeloff/php.vim'
@@ -208,7 +208,7 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-map <F4> :NERDTreeToggle <cr>
+map <Leader>4 :NERDTreeToggle <cr>
 map <Leader>r :NERDTreeFind <cr>
 
 " Fugitive
@@ -407,6 +407,21 @@ if has("gui_running")
     elseif (filereadable('mix.exs'))
         colorscheme base16-tomorrow
         let g:airline_theme='tomorrow'
+        " Customize Theme {{{
+
+        function! s:base16_customize() abort
+          call Base16hi("Normal",        g:base16_gui05, "f7f9fc", g:base16_cterm05, g:base16_cterm00, "", "")
+          call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+          call Base16hi("elixirAlias", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+          call Base16hi("elixirInclude", g:base16_gui0E, "", g:base16_cterm0E, "", "", "")
+        endfunction
+
+        augroup on_change_colorschema
+          autocmd!
+          autocmd ColorScheme * call s:base16_customize()
+        augroup END
+
+        "}}}
     else
         colorscheme solarized
         "colorscheme badwolf
@@ -427,20 +442,3 @@ if has("gui_running")
     endif
 endif
 " }}}
-" Customize Theme {{{
-
-function! s:base16_customize() abort
-  call Base16hi("Normal",        g:base16_gui05, "f7f9fc", g:base16_cterm05, g:base16_cterm00, "", "")
-  call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
-  call Base16hi("elixirAlias", g:base16_gui09, "", g:base16_cterm09, "", "", "")
-  call Base16hi("elixirInclude", g:base16_gui0E, "", g:base16_cterm0E, "", "", "")
-endfunction
-
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-augroup END
-
-"}}}
-
-
