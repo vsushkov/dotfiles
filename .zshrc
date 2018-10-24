@@ -89,3 +89,6 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="/usr/local/opt/php@7.0/bin:$PATH"
+export PATH="/usr/local/opt/php@7.0/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"

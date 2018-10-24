@@ -43,6 +43,7 @@ call vundle#begin()
     Plugin 'tpope/vim-projectionist'
     "Plugin 'slashmili/alchemist.vim'
     Bundle 'bogado/file-line'
+    Plugin 'w0rp/ale'
 " SnipMate
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
@@ -283,8 +284,9 @@ let g:ackprg = 'ag --nogroup --column -a -S --nocolor --follow'
 " Abolish
 let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
 
-" Signify
-let g:signify_vcs_list = ['git']
+let g:ale_php_phpcs_executable = '/Users/vsushkov/dev/magento-coding-standard/vendor/bin/phpcs'
+let g:ale_php_phpcs_standard = 'MEQP1'
+let g:ale_php_phpcs_use_global = 1
 
 " }}}
 " Settings {{{
@@ -394,6 +396,8 @@ augroup END
 " GUI {{{
 if has("gui_running")
     let g:solarized_diffmode="high"
+
+    let g:airline#extensions#ale#enabled = 1
 
     set lines=59
     set columns=272
