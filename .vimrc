@@ -210,7 +210,7 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 map <Leader>4 :NERDTreeToggle <cr>
-map <Leader>r :NERDTreeFind <cr>
+map R :NERDTreeFind <cr>
 
 " Fugitive
 map <leader>gs :Gstatus<cr>
