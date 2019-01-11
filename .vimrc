@@ -1,14 +1,12 @@
 "
 " My .vimrc
 "
-" Vundle {{{
+" Plug {{{
 set nocompatible               " be iMproved
 filetype off                   " required!
 
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-    Plug 'VundleVim/Vundle.vim'
 " like nocompatiable
     Plug 'tpope/vim-sensible'
 " My Bundles here:
