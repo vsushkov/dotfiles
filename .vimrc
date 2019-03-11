@@ -2,76 +2,28 @@
 " My .vimrc
 "
 " Plug {{{
-set nocompatible               " be iMproved
-filetype off                   " required!
-
 call plug#begin('~/.vim/plugged')
 
-" like nocompatiable
-    Plug 'tpope/vim-sensible'
-" My Bundles here:
-    "Plug 'tpope/vim-obsession'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'scrooloose/nerdtree'
-    Plug 'vsushkov/nerdtree-ack'
-    "Plug 'bkad/CamelCaseMotion'
-    Plug 'ctrlpvim/ctrlp.vim'
-    "Plug 'tacahiroy/ctrlp-funky'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'tomtom/tlib_vim'
-    Plug 'tpope/vim-abolish'
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tpope/vim-git'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-surround'
-    Plug 'mileszs/ack.vim'
-    Plug 'mattn/emmet-vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'Lokaltog/vim-easymotion'
-    Plug 'vimwiki/vimwiki'
-    "Plug 'gregsexton/MatchTag'
-    "Plug 'sjl/gundo.vim'
-    "Plug 'evanmiller/nginx-vim-syntax'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'ntpeters/vim-better-whitespace'
-    "Plug 'c-brenn/phoenix.vim'
-    Plug 'tpope/vim-projectionist'
-    "Plug 'slashmili/alchemist.vim'
-    Plug 'bogado/file-line'
-    Plug 'w0rp/ale'
-" SnipMate
-    Plug 'garbas/vim-snipmate'
-    Plug 'honza/vim-snippets'
-    Plug 'vsushkov/my-snipmate-snippets'
-" Coffescript / Javascript
-    Plug 'kchmck/vim-coffee-script'
-" Ruby / Rails
-    "Plug 'vim-ruby/vim-ruby'
-    Plug 'tpope/vim-endwise'
-    "Plug 'tpope/vim-rails'
-" PHP
-    Plug 'vsushkov/vim-phpdocumentor'
-    "Plug 'StanAngeloff/php.vim'
-    "Plug 'vsushkov/vim-phpcs'
-    "Plug 'xsbeats/vim-blade'
-    "Plug 'us3r64/vim-phpqa'
-" SASS/SCSS/CSS
-    Plug 'hail2u/vim-css3-syntax'
-" Elixir
-    Plug 'elixir-editors/vim-elixir'
-    Plug 'slim-template/vim-slim'
-    Plug 'slashmili/alchemist.vim'
-" Colorschemes
-    Plug 'jpo/vim-railscasts-theme'
-    Plug 'altercation/vim-colors-solarized'
-    "Plug 'vsushkov/vim-tomorrow-theme'
-    Plug 'chriskempson/base16-vim'
-    Plug 'sjl/badwolf'
-    Plug 'tomasr/molokai'
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/vim-easy-align'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'vsushkov/my-snipmate-snippets'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'dyng/ctrlsf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'elixir-editors/vim-elixir'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'vimwiki/vimwiki'
+Plug 'bogado/file-line'
+
 call plug#end()
-filetype plugin indent on
 " }}}
 " Mappings {{{
 " Leader
@@ -130,29 +82,39 @@ imap <C-a> <C-c>A
 
 nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
 
-nmap <Leader>t :call RunAllTests()<CR>
-
 map Y y$
 
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" }}}
+" Plugins settings {{{
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
-autocmd BufReadPost *.css,*.scss nnoremap <buffer> <D-j> :%s/\(\w\):\(\S\)/\1: \2/g<CR>
-autocmd BufReadPost *.css,*.scss nnoremap <buffer> <D-k> :%s/\(\S\){/\1 {/g<CR>
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
 
-" }}}
-" Functions {{{
-" remove trailing spaces before save
-fun! StripTrailingWhitespace()
-    " Only strip if the b:noStripeWhitespace variable isn't set
-    if exists('b:noStripWhitespace')
-        return
-    endif
-    %s/\s\+$//e
-endfun
+" NERDTree
+let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeChDirMode = 2
+map <Leader>4 :NERDTreeToggle <cr>
+map <Leader>r :NERDTreeFind <cr>
 
+" Fugitive
+map <leader>gs :Gstatus<cr>
+map <leader>gw :Gwrite<cr>
+map <leader>gd :Gdiff<cr>
+map <leader>gc :Gcommit<cr>
+map <leader>gb :Gblame<cr>
+
+" CtrlP
+let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|\node_modules$\|media$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$\|.jpg$\|\.gif$\|\.png$\|\.alist$\|\.clist$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
@@ -161,262 +123,68 @@ else
     \ }
 endif
 
-function! ClearTerminal()
-    call SendToTerminal("clear")
-endfunction
-
-function! SendToTerminal(args)
-    execute ":silent !run_command '" . a:args . "'"
-endfunction
-
-function! RunTest()
-    call ClearTerminal()
-    if exists("s:current_test")
-        call SendToTerminal("mix test " . s:current_test)
-    endif
-endfunction
-
-function! RunAllTests()
-    call ClearTerminal()
-    call SendToTerminal("mix test")
-endfunction
-
-function! RunCurrentTest()
-    let s:current_test = expand('%:p')
-    call RunTest()
-endfunction
-
-function! RunCurrentLineInTest()
-    let s:current_test = expand('%:p') . ":" . line('.')
-    call RunTest()
-endfunction
-
-
-" }}}
-" Plugins settings {{{
-
-" Coffe
-let coffee_compile_vert = 1
-
-" NERDTree
-let g:NERDChristmasTree = 1
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize = 30
-let g:NERDTreeCaseSensitiveSort = 1
-let g:NERDTreeChDirMode = 2
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-map <Leader>4 :NERDTreeToggle <cr>
-map <Leader>r :NERDTreeFind <cr>
-map R :NERDTreeFind <cr>
-
-" Fugitive
-map <leader>gs :Gstatus<cr>
-map <leader>gw :Gwrite<cr>
-map <leader>gd :Gdiff<cr>
-map <leader>gc :Gcommit<cr>
-map <leader>gb :Gblame<cr>
-map <leader>gl :Glog
-
-" PHP Documentor settings
-let g:pdv_cfg_php4always = 0
-nmap <Leader>d :call PhpDocSingle()<CR>
-
-" PHP QA
-let g:phpqa_messdetector_cmd = './vendor/bin/phpmd'
-let g:phpqa_codesniffer_cmd = './vendor/bin/phpcs'
-let g:phpqa_codesniffer_args = "--standard=Oggetto"
-let g:phpqa_messdetector_autorun = 0
-let g:phpqa_codesniffer_autorun = 0
-let g:phpqa_codecoverage_autorun = 1
-let g:phpqa_codesnifferfixer_autorun = 0
-
-" CtrlP
-let g:ctrlp_max_files = 30000
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|\node_modules$\|media$',
-  \ 'file': '\.exe$\|\.so$\|\.dll$\|.jpg$\|\.gif$\|\.png$\|\.alist$\|\.clist$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_extensions = ['funky']
-
-" Easymotion settings
-let g:EasyMotion_leader_key = '<Leader>'
-
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki', 'ext': '.wiki'}]
 let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
-" ultisnips settings
-"let g:snipMate['snippet_dirs'] = ['~/.vim/bundle/vim-snippets', '/Users/vsushkov/.vim/bundle/my-snipmate-snippets']
-"let g:snipMate.scope_aliases = {}
-"let g:snipMate.scope_aliases['php'] = 'php'
-"let g:snipMate.scope_aliases['phtml'] = 'php,html,javascript'
-"let g:snipMate.scope_aliases['scss'] = 'scss,css'
+" }}}
+" Functions {{{
+fun! StripTrailingWhitespace()
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s\+$//e
+endfun
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" NERDCommenter for ruby
-let g:NERDCustomDelimiters = {
-    \ 'ruby': { 'left': '# ' }
-\ }
-
-" Gundo
-nnoremap <F5> :GundoToggle<CR>
-let g:gundo_right = 1
-
-" Gist
-let g:gist_clip_command = 'pbcopy'
-let g:gist_open_browser_after_post = 1
-
-" Ack / Ag
-let g:ackprg = 'ag --nogroup --column -a -S --nocolor --follow'
-
-" Abolish
-let g:abolish_save_file = $HOME . '/dotfiles/abolish.vim'
-
-let g:ale_php_phpcs_executable = '/Users/vsushkov/dev/magento-coding-standard/vendor/bin/phpcs'
-let g:ale_php_phpcs_standard = 'MEQP1'
-let g:ale_php_phpcs_use_global = 1
-
+fun! s:base16_customize() abort
+  call Base16hi("Normal",        g:base16_gui05, "f7f9fc", g:base16_cterm05, g:base16_cterm00, "", "")
+  call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+  call Base16hi("elixirAlias", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+  call Base16hi("elixirInclude", g:base16_gui0E, "", g:base16_cterm0E, "", "", "")
+endfun
 " }}}
 " Settings {{{
-set encoding=utf-8  " Necessary to show unicode glyphs
-set tabstop=4       " numbers of spaces of tab character
-set softtabstop=4
-set shiftwidth=4    " numbers of spaces to (auto)indent
-set scrolloff=3     " keep 3 lines when scrolling
-set hlsearch        " highlight searches
+set hlsearch
 set noerrorbells
-set visualbell t_vb=    " turn off error beep/flash
-set nonumber        " do not show line numbers
+set visualbell t_vb=
 set ignorecase
-set smartcase       " smart case when searching
-set title           " Set the terminal title
-set nowrap
-set expandtab
-"set noexpandtab
-set autoread        " When a file has been changed outside of Vim, automatically read it again
-set formatoptions+=t
-set notitle
+set smartcase
+set autoread
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-set foldmethod=marker
-set ch=1 " Command line height
-set nobackup
-set nowritebackup
-set noswapfile
-set backupdir=~/tmp
 set shell=/usr/local/bin/zsh\ -l
-set list
-set ff=unix
-set synmaxcol=400
-set diffopt=filler,vertical
+set scrolloff=3
+set nowrap
+set noswapfile
+set foldmethod=marker
 
-" Don't update the display while executing macros
-set lazyredraw
-
-" Don't show the current command in the lower right corner. In OSX, if this is
-" set and lazyredraw is set then it's slow as molasses, so we unset this
-" set noshowcmd
-
-" This is the timeout used while waiting for user input on a multi-keyed macro
-" or while just sitting and waiting for another key to be pressed measured
-" in milliseconds.
-"
-" i.e. for the ",d" command, there is a "timeoutlen" wait period between the
-"      "," key and the "d" key.  If the "d" key isn't pressed before the
-"      timeout expires, one of two things happens: The "," command is executed
-"      if there is one (which there isn't) or the command aborts.
-set timeoutlen=500
-set matchtime=1
-
-" These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-
-" Use persistent undo
 if has('persistent_undo')
-    set undodir=/tmp
-    set undolevels=5000
-    set undofile
+  set undodir=/tmp
+  set undolevels=5000
+  set undofile
 endif
-
-" Use option (alt) as meta key.
 if has('mac')
-    set macmeta
+  set macmeta
 endif
 " }}}
 " Autocommands {{{
-autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
-autocmd FileType php setlocal ai sw=4 sts=4 et tw=120
-autocmd FileType php let b:isPHP=1
-autocmd FileType phtml setlocal ai sw=4 sts=4 et tw=0
-autocmd FileType gitcommit setlocal colorcolumn=50,72 tw=72
-autocmd FileType elixir setlocal colorcolumn=80 tw=80
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.phtml setl filetype=phtml
-autocmd BufNewFile,BufReadPost *.md setl filetype=markdown
-autocmd BufNewFile,BufReadPost *.cnf setl filetype=dosini
-" autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
 autocmd BufWritePre * call StripTrailingWhitespace()
-autocmd FileType ruby,markdown,yaml let b:noStripWhitespace=1
-autocmd FileType ruby compiler ruby
-autocmd FileType eruby compiler eruby
-autocmd FileType css setlocal sw=2 sts=2 ts=2 ai et
-autocmd FileType scss setlocal sw=2 sts=2 ts=2 ai et
-" apply .vimrc after save
-autocmd BufWritePost .vimrc source %
-" Save when losing focus
-autocmd FocusLost * :wa
-" Resize splits when the window is resized
-autocmd VimResized * exe "normal! \<c-w>="
-" }}}
-" Not sorted {{{
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" Make sure Vim returns to the same line when you reopen a file.
-" Thanks, Amit
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
+autocmd FileType markdown,yaml let b:noStripWhitespace=1
 " }}}
 " GUI {{{
 if has("gui_running")
-    let g:solarized_diffmode="high"
+    "let g:solarized_diffmode="high"
 
-    let g:airline#extensions#ale#enabled = 1
+    "let g:airline#extensions#ale#enabled = 1
 
-    set lines=59
-    set columns=272
-    set background=light
-    set guifont=Monaco:h12
+    "set lines=59
+    "set columns=272
+    "set background=light
+    set guifont=Monaco:h13
 
-    if (filereadable("Gemfile") || filereadable("Rakefile")) && !filereadable('index.php')
-        colorscheme railscasts
-        set number
-        set guifont=Monaco:h13
-    elseif (filereadable('mix.exs'))
+    if (filereadable('mix.exs'))
         colorscheme base16-tomorrow
-        let g:airline_theme='tomorrow'
+        "let g:airline_theme='tomorrow'
         " Customize Theme {{{
-
-        function! s:base16_customize() abort
-          call Base16hi("Normal",        g:base16_gui05, "f7f9fc", g:base16_cterm05, g:base16_cterm00, "", "")
-          call Base16hi("elixirModuleDeclaration", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
-          call Base16hi("elixirAlias", g:base16_gui09, "", g:base16_cterm09, "", "", "")
-          call Base16hi("elixirInclude", g:base16_gui0E, "", g:base16_cterm0E, "", "", "")
-        endfunction
 
         augroup on_change_colorschema
           autocmd!
@@ -426,18 +194,14 @@ if has("gui_running")
         "}}}
     else
         colorscheme solarized
-        "colorscheme badwolf
         call togglebg#map("<F12>")
     endif
 
-    set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
 
     " no search highlight
     noremap <M-/> :nohl<CR>
-    " fugitive
-    noremap <M-g> :Git<Space>
 
     if exists('+colorcolumn')
          set colorcolumn=+1
