@@ -22,6 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'bogado/file-line'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 " }}}
