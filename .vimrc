@@ -8,7 +8,6 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'vsushkov/my-snipmate-snippets'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'dyng/ctrlsf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
@@ -23,6 +22,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'bogado/file-line'
 Plug 'mattn/emmet-vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'masaakif/nerdtree-useful-plugins'
 
 call plug#end()
 " }}}
@@ -157,6 +158,7 @@ set scrolloff=3
 set nowrap
 set noswapfile
 set foldmethod=marker
+set expandtab
 
 if has('persistent_undo')
   set undodir=/tmp
