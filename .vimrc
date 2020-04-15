@@ -22,8 +22,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'bogado/file-line'
 Plug 'mattn/emmet-vim'
-Plug 'jremmen/vim-ripgrep'
 Plug 'masaakif/nerdtree-useful-plugins'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'posva/vim-vue'
+Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+Plug 'mileszs/ack.vim'
+Plug 'terryma/vim-multiple-cursors'
+"Plug 'yggdroot/indentline'
 
 call plug#end()
 " }}}
@@ -172,6 +178,15 @@ endif
 " Autocommands {{{
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType markdown,yaml let b:noStripWhitespace=1
+autocmd FileType xml set tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType js,vue set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType eelixir let b:splitjoin_split_callbacks = ['sj#html#SplitTags', 'sj#html#SplitAttributes']
+autocmd FileType eelixir let b:splitjoin_join_callbacks = ['sj#html#JoinTags', 'sj#html#JoinAttributes']
+
+if (filereadable('composer.lock'))
+    autocmd FileType js,less set tabstop=4 shiftwidth=4 softtabstop=4
+endif
+
 " }}}
 " GUI {{{
 if has("gui_running")
