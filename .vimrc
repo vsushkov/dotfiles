@@ -8,7 +8,6 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'vsushkov/my-snipmate-snippets'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'elixir-editors/vim-elixir'
@@ -22,13 +21,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'bogado/file-line'
 Plug 'mattn/emmet-vim'
-Plug 'masaakif/nerdtree-useful-plugins'
-Plug 'AndrewRadev/splitjoin.vim'
+"Plug 'AndrewRadev/splitjoin.vim'
 Plug 'posva/vim-vue'
 Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 "Plug 'yggdroot/indentline'
 
 call plug#end()
@@ -115,20 +114,9 @@ map <leader>gd :Gdiff<cr>
 map <leader>gc :Gcommit<cr>
 map <leader>gb :Gblame<cr>
 
-" CtrlP
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|var$\|downloader$\|errors$\|pkginfo$\|\node_modules$\|media$',
-  \ 'file': '\.exe$\|\.so$\|\.dll$\|.jpg$\|\.gif$\|\.png$\|\.alist$\|\.clist$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+" Ack
 if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 " VimWiki
