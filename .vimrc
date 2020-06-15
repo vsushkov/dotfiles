@@ -24,7 +24,7 @@ Plug 'mattn/emmet-vim'
 "Plug 'AndrewRadev/splitjoin.vim'
 Plug 'posva/vim-vue'
 Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -123,6 +123,9 @@ endif
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki', 'ext': '.wiki'}]
 let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
+" Ale
+let g:ale_php_phpcs_standard = 'Magento2'
+
 " }}}
 " Functions {{{
 fun! StripTrailingWhitespace()
@@ -200,7 +203,7 @@ if has("gui_running")
         "}}}
     else
         colorscheme solarized
-        call togglebg#map("<F12>")
+        call togglebg#map("<leader>l")
     endif
 
     set guioptions-=r  "remove right-hand scroll bar
