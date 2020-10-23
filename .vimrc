@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'vsushkov/my-snipmate-snippets'
+Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate' | Plug 'honza/vim-snippets' | Plug 'vsushkov/my-snipmate-snippets'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
@@ -21,14 +21,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'bogado/file-line'
 Plug 'mattn/emmet-vim'
-"Plug 'AndrewRadev/splitjoin.vim'
 Plug 'posva/vim-vue'
 Plug 'scrooloose/syntastic'
 Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-"Plug 'yggdroot/indentline'
+Plug 'lumiliet/vim-twig'
 
 call plug#end()
 " }}}
@@ -95,11 +94,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " }}}
 " Plugins settings {{{
 vnoremap <silent> <Enter> :EasyAlign<cr>
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
 
 " NERDTree
 let g:NERDTreeCaseSensitiveSort = 1
@@ -203,7 +197,7 @@ if has("gui_running")
         "}}}
     else
         colorscheme solarized
-        call togglebg#map("<leader>l")
+        call togglebg#map("<F5>")
     endif
 
     set guioptions-=r  "remove right-hand scroll bar
