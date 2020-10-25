@@ -151,6 +151,7 @@ set nowrap
 set noswapfile
 set foldmethod=marker
 set expandtab
+set notitle
 
 if has('persistent_undo')
   set undodir=/tmp
