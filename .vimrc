@@ -121,6 +121,9 @@ let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 " Ale
 let g:ale_php_phpcs_standard = 'Magento2'
 
+" SnipMate
+let g:snipMate = { 'snippet_version' : 1 }
+
 " }}}
 " Functions {{{
 fun! StripTrailingWhitespace()
