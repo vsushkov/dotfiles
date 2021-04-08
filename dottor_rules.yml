@@ -2,6 +2,8 @@
 default:
 - source: .vimrc
   target: ~/.vimrc
+- source: .ideavimrc 
+  target: ~/.ideavimrc
 - source: .zshrc
   target: ~/.zshrc
 - source: run_command
