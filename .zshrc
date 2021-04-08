@@ -99,6 +99,5 @@ export PATH="/usr/local/opt/varnish@4/bin:$PATH"
 export PATH="/usr/local/opt/varnish@4/sbin:$PATH"
 export PATH="/usr/local/opt/node@12/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
