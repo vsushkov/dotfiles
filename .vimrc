@@ -29,6 +29,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lumiliet/vim-twig'
 Plug 'vsushkov/nerdtree-fzf'
+Plug 'vsushkov/nerdtree-fzf'
+Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'tpope/vim-dadbod'
 
 call plug#end()
 " }}}
@@ -181,6 +185,7 @@ endif
 " GUI {{{
 if has("gui_running")
     "let g:solarized_diffmode="high"
+    let ayucolor="mirage"
 
     "let g:airline#extensions#ale#enabled = 1
 
