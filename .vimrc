@@ -107,11 +107,13 @@ map <Leader>4 :NERDTreeToggle <cr>
 map <Leader>r :NERDTreeFind <cr>
 
 " Fugitive
-map <leader>gs :Gstatus<cr>
+map <leader>gs :Git<cr>
 map <leader>gw :Gwrite<cr>
 map <leader>gd :Gdiff<cr>
 map <leader>gc :Gcommit<cr>
 map <leader>gb :Gblame<cr>
+map <leader>gl :Git pull<cr>
+map <leader>gp :Git push<cr>
 
 " Ack
 if executable('ag')
