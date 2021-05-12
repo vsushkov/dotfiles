@@ -131,6 +131,9 @@ let g:ale_php_phpcs_standard = 'Magento2'
 " SnipMate
 let g:snipMate = { 'snippet_version' : 1 }
 
+" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " }}}
 " Functions {{{
 fun! StripTrailingWhitespace()
