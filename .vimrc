@@ -33,6 +33,7 @@ Plug 'vsushkov/nerdtree-fzf'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'tpope/vim-dadbod'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 " }}}
@@ -208,7 +209,8 @@ if has("gui_running")
 
         "}}}
     else
-        colorscheme solarized
+        "colorscheme solarized
+        colorscheme nord
         call togglebg#map("<F5>")
     endif
 
