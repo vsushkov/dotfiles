@@ -27,10 +27,8 @@ unsetopt nomatch
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(themes bundler git capistrano history-substring-search mix)
+plugins=(themes bundler git capistrano history-substring-search)
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,17 +58,6 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
@@ -83,21 +70,21 @@ bindkey -M emacs '^N' history-substring-search-down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH=$PATH:/Users/vsushkov/bin
+#export PATH=$PATH:/Users/vsushkov/bin
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+#export NVM_DIR="$HOME/.nvm"
+#. "/usr/local/opt/nvm/nvm.sh"
 
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+#export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 #export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 #export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 #export PATH="/usr/local/opt/php@7.2/bin:$PATH"
 #export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 #export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 #export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-export PATH="/usr/local/opt/varnish@4/bin:$PATH"
-export PATH="/usr/local/opt/varnish@4/sbin:$PATH"
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+#export PATH="/usr/local/opt/varnish@4/bin:$PATH"
+#export PATH="/usr/local/opt/varnish@4/sbin:$PATH"
+#export PATH="/usr/local/opt/node@12/bin:$PATH"
+#export PATH="/usr/local/sbin:$PATH"
 export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"

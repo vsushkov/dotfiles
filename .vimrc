@@ -32,6 +32,7 @@ Plug 'vsushkov/nerdtree-fzf'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 " }}}
