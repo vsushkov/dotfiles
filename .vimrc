@@ -97,6 +97,7 @@ map Y y$
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 nmap <C-P> :Files<CR>
+nmap <Leader>h :History<CR>
 " }}}
 " Plugins settings {{{
 vnoremap <silent> <Enter> :EasyAlign<cr>
