@@ -48,6 +48,7 @@ alias run="brew services run"
 alias start="brew services start"
 alias restart="brew services restart"
 alias stop="brew services stop"
+alias :q="exit"
 
 # IP addresses tricks
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

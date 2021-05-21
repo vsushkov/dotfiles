@@ -99,6 +99,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 nmap <C-P> :Files<CR>
 nmap <Leader>h :History<CR>
+
+nmap <Leader>t :botright terminal<CR>
 " }}}
 " Plugins settings {{{
 vnoremap <silent> <Enter> :EasyAlign<cr>
@@ -167,6 +169,7 @@ set noswapfile
 set foldmethod=marker
 set expandtab
 set notitle
+set termwinsize=12x0
 
 if has('persistent_undo')
   set undodir=/tmp
