@@ -32,7 +32,6 @@ Plug 'vsushkov/nerdtree-fzf'
 Plug 'vsushkov/nerdtree-fzf'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'tpope/vim-dadbod'
 Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
@@ -97,6 +96,8 @@ nmap <Leader>c :e! ++enc=cp1251 ++ff=dos  <CR>
 map Y y$
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+nmap <C-P> :Files<CR>
 " }}}
 " Plugins settings {{{
 vnoremap <silent> <Enter> :EasyAlign<cr>
