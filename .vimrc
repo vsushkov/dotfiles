@@ -101,6 +101,9 @@ nmap <C-P> :Files<CR>
 nmap <Leader>h :History<CR>
 
 nmap <Leader>t :botright terminal<CR>
+
+nmap <silent> <leader>j :ALENext<CR>
+nmap <silent> <leader>k :ALEPrevious<CR>
 " }}}
 " Plugins settings {{{
 vnoremap <silent> <Enter> :EasyAlign<cr>
