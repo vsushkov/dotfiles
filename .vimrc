@@ -33,6 +33,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
+Plug 'vim-vdebug/vdebug'
 
 call plug#end()
 " }}}
