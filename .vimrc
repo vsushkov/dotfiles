@@ -34,6 +34,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
 Plug 'vim-vdebug/vdebug'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 " }}}
@@ -68,7 +69,6 @@ map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
-noremap <leader>v <C-w>v
 
 map ì 10<C-W>>
 map è 10<C-W><
@@ -76,7 +76,7 @@ map ë 5<C-W>-
 map ê 5<C-W>+
 
 " edit .vimrc
-nmap <silent> ;v :next $MYVIMRC<CR>
+nmap <silent> <leader>v :next $MYVIMRC<CR>
 
 " tmp file
 nmap tt :next /tmp/temprary_file<CR>
