@@ -46,6 +46,9 @@ let maplocalleader = "\\"
 " Beatify XML
 nmap <Leader>x :%s/></>\r</g<CR>gg=G
 
+" Beatify JSON
+nmap <Leader>j :%!python -m json.tool
+
 " Copy filepath to sysbuffer
 nmap <Leader>p :let @+=expand("%")<CR>
 
