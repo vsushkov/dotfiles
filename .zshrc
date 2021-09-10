@@ -59,6 +59,9 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
+alias m24="brew services stop php@7.3 && brew services stop mysql@5.7 && brew services run mysql && brew services run php@7.4 && brew link php@7.4"
+alias m23="brew services stop php@7.4 && brew services stop mysql && brew services run mysql@5.7 && brew services run php@7.3 && brew link php@7.3"
+
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 

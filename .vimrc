@@ -35,6 +35,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
 Plug 'vim-vdebug/vdebug'
 Plug 'tomasiser/vim-code-dark'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 " }}}
@@ -47,7 +49,7 @@ let maplocalleader = "\\"
 nmap <Leader>x :%s/></>\r</g<CR>gg=G
 
 " Beatify JSON
-nmap <Leader>j :%!python -m json.tool
+nmap <Leader>j :%!python -m json.tool<CR>
 
 " Copy filepath to sysbuffer
 nmap <Leader>p :let @+=expand("%")<CR>
