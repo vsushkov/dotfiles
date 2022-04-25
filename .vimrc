@@ -35,8 +35,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
 Plug 'vim-vdebug/vdebug'
 Plug 'tomasiser/vim-code-dark'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 " }}}
@@ -207,8 +205,6 @@ if has("gui_running")
     "let g:solarized_diffmode="high"
     let ayucolor="mirage"
 
-    "let g:airline#extensions#ale#enabled = 1
-
     "set lines=59
     "set columns=272
     "set background=light
@@ -216,7 +212,6 @@ if has("gui_running")
 
     if (filereadable('mix.exs'))
         colorscheme base16-tomorrow
-        "let g:airline_theme='tomorrow'
         " Customize Theme {{{
 
         augroup on_change_colorschema

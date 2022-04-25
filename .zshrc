@@ -43,7 +43,7 @@ alias ll="ls -lash"
 alias la="ls -a"
 alias phpunit="vendor/bin/phpunit --colors"
 alias iex="iex --erl \"-kernel shell_history enabled\""
-alias dep="php vendor/deployer/dist/dep"
+#alias dep="php vendor/deployer/dist/dep"
 alias run="brew services run"
 alias start="brew services start"
 alias restart="brew services restart"
@@ -59,8 +59,8 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-alias m24="brew services stop php@7.3 && brew services stop mysql@5.7 && brew services run mysql && brew services run php@7.4 && brew link php@7.4"
-alias m23="brew services stop php@7.4 && brew services stop mysql && brew services run mysql@5.7 && brew services run php@7.3 && brew link php@7.3"
+alias m24="brew services stop php@7.3 && brew services stop mysql@5.7 && brew services run mysql && brew services run php@7.4 && brew link --overwrite --force shivammathur/php/php@7.4"
+alias m23="brew services stop php@7.4 && brew services stop mysql && brew services run mysql@5.7 && brew services run php@7.3 && brew link --overwrite --force shivammathur/php/php@7.3"
 
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
@@ -74,21 +74,4 @@ bindkey -M emacs '^N' history-substring-search-down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-#export PATH=$PATH:/Users/vsushkov/bin
-
-#export NVM_DIR="$HOME/.nvm"
-#. "/usr/local/opt/nvm/nvm.sh"
-
-#export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-#export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-#export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
-#export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-#export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
-#export PATH="/usr/local/opt/php@7.3/bin:$PATH"
-#export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-#export PATH="/usr/local/opt/varnish@4/bin:$PATH"
-#export PATH="/usr/local/opt/varnish@4/sbin:$PATH"
-#export PATH="/usr/local/opt/node@12/bin:$PATH"
-#export PATH="/usr/local/sbin:$PATH"
 export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
-#export PATH="$PATH:$HOME/.rvm/bin"
